@@ -1,0 +1,1 @@
+export const GENERATE_DICE = 'GENERATE_DICE';

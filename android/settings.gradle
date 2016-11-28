@@ -1,0 +1,3 @@
+rootProject.name = 'DiceRollerBeta1'
+
+include ':app'
