@@ -16,7 +16,7 @@ export class TossingFilterContainer extends Component {
 	constructor(props) {
 		super(props);
 		
-		this.state = {d20number: 1}
+		this.state = {d20number: 15}
 		
 		this.onChangeText = this.onChangeText.bind(this);
 		this.onButtonTossPress = this.onButtonTossPress.bind(this);
@@ -60,7 +60,7 @@ export class TossingFilterContainer extends Component {
 					onPress={this.onButtonTossPress}
 					title={`Lancia ${n} ${dado} da venti`}
 					accessibilityLabel="Lancia i dadi"
-					color='#FF0000'
+					color='#0000FF'
 				/>
 				<DiceRender dice={this.props.dice} />
 			</View>
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		textAlign: 'left',
 		margin: 10,
-		color: '#00FFFF',
+		fontWeight: 'bold',
+		color: '#0000FF',
 	},
 });

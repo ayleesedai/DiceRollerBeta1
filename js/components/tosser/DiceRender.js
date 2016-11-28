@@ -32,5 +32,6 @@ const styles = StyleSheet.create({
 	flexDirection: 'row',
 	flexWrap: 'wrap',
     backgroundColor: '#000000',
+	marginTop: 10
   },
 });

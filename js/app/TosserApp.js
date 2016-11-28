@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View
+	Image,
+	StyleSheet,
+	Text,
+	View
 } from 'react-native';
 
 import TossingFilterContainer from '../containers/TossingFilterContainer.js';
 
 export default class TosserApp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.header}>
-		  MAS Experience: Tosser (DAIS Roller)
-		</Text>
-		<TossingFilterContainer />
-      </View>
-    );
-  }
+	render() {
+		return (
+			<View style={styles.container}>
+				<Text style={styles.header}>MAS Experience: DAIS Roller</Text>
+				<Image source={require('./dice.png')} />
+				<TossingFilterContainer />
+			</View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
@@ -25,10 +25,12 @@ const styles = StyleSheet.create({
     flex: 1,
 	flexDirection: 'column',
     backgroundColor: '#000000',
+	marginTop: 50
   },
   header: {
-	color: '#FF0000',
+	color: '#0000FF',
 	fontSize: 25,
 	textAlign: 'center',
+	fontWeight: 'bold',
   }
 });
