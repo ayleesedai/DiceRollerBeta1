@@ -53,6 +53,7 @@ export class TossingFilterContainer extends Component {
 			<View style={styles.container}>
 				<Text style={styles.header}>Scegli quanti D20</Text>
 				<TextInput 
+					style={styles.howmanydice}
 					onChangeText={this.onChangeText} 
 					value={n}
 				/>
@@ -93,6 +94,9 @@ const styles = StyleSheet.create({
 		textAlign: 'left',
 		margin: 10,
 		fontWeight: 'bold',
+		color: '#0000FF',
+	},
+	howmanydice: {
 		color: '#0000FF',
 	},
 });

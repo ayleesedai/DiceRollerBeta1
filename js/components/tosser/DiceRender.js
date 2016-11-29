@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
 	flexDirection: 'row',
 	flexWrap: 'wrap',
+	alignItems: 'flex-start',
     backgroundColor: '#000000',
 	marginTop: 10
   },
