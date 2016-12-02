@@ -23,16 +23,16 @@ export default class TosserApp extends Component {
 //				<Image source={require('./dice.png')} />
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-	flexDirection: 'column',
-    backgroundColor: '#000000',
-	marginTop: 50
-  },
-  header: {
-	color: '#0000FF',
-	fontSize: 25,
-	textAlign: 'center',
-	fontWeight: 'bold',
-  }
+	container: {
+		flex: 1,
+		flexDirection: 'column',
+		backgroundColor: '#000000',
+		marginTop: 50
+	},
+	header: {
+		color: '#0000FF',
+		fontSize: 25,
+		textAlign: 'center',
+		fontWeight: 'bold',
+	}
 });
