@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-	Button,
-	StyleSheet,
-	Text,
-	TextInput,
-	View
-} from 'react-native';
-import {bindActionCreators} from 'redux';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import * as tosserActions from '../components/tosser/actionsCreator.js';
@@ -16,17 +9,11 @@ export class TossingFilterContainer extends Component {
 	constructor(props) {
 		super(props);
 		
-		this.state = {d20number: 15}
+		this.state = {d20number: 15};
 		
 		this.onChangeText = this.onChangeText.bind(this);
 		this.onButtonTossPress = this.onButtonTossPress.bind(this);
 	}
-	
-	static propTypes = {
-		dice: React.PropTypes.array,
-		
-		generateDice: React.PropTypes.func,
-	};
 
 	onChangeText(text) {
 		const parsed = parseInt(text);
@@ -69,17 +56,22 @@ export class TossingFilterContainer extends Component {
 	}
 }
 
+TossingFilterContainer.PropTypes = {
+	dice: React.PropTypes.array,
+	generateDice: React.PropTypes.func,
+};
+
 const mapStateToProps = state => {
 	const { dice } = state.tosser;
 	return {
 		dice,
-	}
+	};
 };
 
 const mapActionsToProps = dispatch => {
 	return {
 		generateDice: dice => dispatch(tosserActions.generateDice(dice)),
-	}
+	};
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(TossingFilterContainer);
