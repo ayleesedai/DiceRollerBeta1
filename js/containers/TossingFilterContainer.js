@@ -56,7 +56,7 @@ export class TossingFilterContainer extends Component {
 	}
 }
 
-TossingFilterContainer.PropTypes = {
+TossingFilterContainer.propTypes = {
 	dice: React.PropTypes.array,
 	generateDice: React.PropTypes.func,
 };

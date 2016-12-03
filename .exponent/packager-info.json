@@ -1,0 +1,7 @@
+{
+  "packagerPort": 8081,
+  "exponentServerPort": 19000,
+  "exponentServerNgrokUrl": "https://ff-uqb.ayleesedai.dicerollerbeta1.exp.direct",
+  "packagerNgrokUrl": "https://packager.ff-uqb.ayleesedai.dicerollerbeta1.exp.direct",
+  "ngrokPid": 14220
+}

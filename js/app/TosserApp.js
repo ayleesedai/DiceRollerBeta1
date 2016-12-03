@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-	Image,
 	StyleSheet,
 	Text,
 	View
@@ -9,7 +8,7 @@ import {
 import TossingFilterContainer from '../containers/TossingFilterContainer';
 import D20BlackSprite from '../components/sprite/D20Black/D20BlackSprite';
 
-export default class TosserApp extends Component {
+export default class TosserApp extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -20,7 +19,6 @@ export default class TosserApp extends Component {
 		);
 	}
 }
-//				<Image source={require('./dice.png')} />
 
 const styles = StyleSheet.create({
 	container: {

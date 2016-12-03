@@ -1,19 +1,7 @@
 import React, { Component } from 'react';
-import {
-	StyleSheet,
-	Text,
-	View
-} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default class DieRender extends Component {
-	static propTypes = {
-		die: React.PropTypes.object,
-	};
-
-	static defaultProps = {
-		die: {},
-	};
-	
 	render() {
 		const value = Math.floor(255 * (this.props.die.value / 20));
 		const zero = value<16 ? '0' : '';
@@ -26,13 +14,21 @@ export default class DieRender extends Component {
 	}
 }
 
+DieRender.propTypes = {
+	die: React.PropTypes.object,
+};
+
+DieRender.defaultProps = {
+	die: {},
+};
+	
 const styles = StyleSheet.create({
-  die: {
-	marginTop: 10,
-	color: '#FFFFFF',
-	fontSize: 25,
-	textAlign: 'center',
-	width: 60,
-	height: 50,
-  }
+	die: {
+		marginTop: 10,
+		color: '#FFFFFF',
+		fontSize: 25,
+		textAlign: 'center',
+		width: 60,
+		height: 50,
+	}
 });
