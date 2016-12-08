@@ -3,11 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default class DieRender extends Component {
 	render() {
-		const value = Math.floor(255 * (this.props.die.value / 20));
-		const zero = value<16 ? '0' : '';
-		const backColor = '#0000' + zero + value.toString(16) ;
 		return (
-			<View style={{margin:5, borderRadius: 10, backgroundColor: `${backColor}`}}>
+			<View style={styles.container}>
 				<Text style={styles.die}>{this.props.die.value}</Text>
 			</View>
 		);
@@ -23,6 +20,11 @@ DieRender.defaultProps = {
 };
 	
 const styles = StyleSheet.create({
+	container: {
+		margin: 5, 
+		borderRadius: 10, 
+		backgroundColor: '#0000FF'
+	},
 	die: {
 		marginTop: 10,
 		color: '#FFFFFF',

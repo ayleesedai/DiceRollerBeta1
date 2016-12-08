@@ -5,7 +5,7 @@ import {
 	View
 } from 'react-native';
 
-import TossingFilterContainer from '../containers/TossingFilterContainer';
+import TossingFilterContainer from '../containers/tosser/TossingFilterContainer';
 import D20BlackSprite from '../components/sprite/D20Black/D20BlackSprite';
 
 export default class TosserApp extends React.Component {

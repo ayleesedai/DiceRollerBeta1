@@ -1,4 +1,4 @@
-import tosser from '../components/tosser/reducer.js';
+import tosser from '../containers/tosser/reducer.js';
 
 export {
 	tosser,

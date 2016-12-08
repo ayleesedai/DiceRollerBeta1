@@ -1,9 +1,10 @@
 import 'react-native';
-import React from 'react';
 
-import { generateDice } from '../js/components/tosser/actionsCreator';
-import { GENERATE_DICE } from '../js/components/tosser/actionsDefinition.js';
-import tosser from '../js/components/tosser/reducer.js';
+import { generateDice } from '../js/containers/tosser/actionsCreator';
+import { GENERATE_DICE } from '../js/containers/tosser/actionsDefinition.js';
+import tosser from '../js/containers/tosser/reducer.js';
+
+const {it, expect} = global;
 
 it('creates a valid generateDice action', () => {
 	const dice = [
@@ -25,7 +26,6 @@ it('creates dice entries into the reducer using generateDice action', () => {
 		{	type: 'D20' },
 		{	type: 'D20' },
 	];
-	const expectedState = { dice };
 	const receivedState = tosser(generateDice(dice));
 	
 	expect(receivedState).not.toBeNull();
