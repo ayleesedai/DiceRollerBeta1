@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import * as tosserActions from './actionsCreator.js';
-import DiceRender from '../components/tosser/DiceRender.js';
+import DiceRender from '../../components/tosser/DiceRender.js';
 
 export class TossingFilterContainer extends Component {
 	constructor(props) {
