@@ -12,7 +12,7 @@ export default class PageTossing extends Component {
 				<TextInput 
 					style={styles.howmanydice}
 					onChangeText={this.props.onChangeText} 
-					value={this.props.howmanydice}
+					value={'' + this.props.howmanydice}
 				/>
 				<Button
 					onPress={this.props.onButtonTossPress}
