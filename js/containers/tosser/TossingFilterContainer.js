@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import * as tosserActions from './actionsCreator.js';
-import DiceRender from '../../components/tosser/DiceRender.js';
+import PageTossing from '../../components/tosser/PageTossing';
 
 export class TossingFilterContainer extends Component {
 	constructor(props) {
@@ -34,24 +33,13 @@ export class TossingFilterContainer extends Component {
 	}
 	
 	render() {
-		const n = '' + this.state.d20number;
-		const dado = this.state.d20number===1 ? 'dado' : 'dadi';
 		return (
-			<View style={styles.container}>
-				<Text style={styles.header}>Scegli quanti D20</Text>
-				<TextInput 
-					style={styles.howmanydice}
-					onChangeText={this.onChangeText} 
-					value={n}
-				/>
-				<Button
-					onPress={this.onButtonTossPress}
-					title={`Lancia ${n} ${dado} da venti`}
-					accessibilityLabel="Lancia i dadi"
-					color='#0000FF'
-				/>
-				<DiceRender dice={this.props.dice} />
-			</View>
+			<PageTossing
+				dice={this.props.dice}
+				howmanydice={this.state.d20number}
+				onChangeText={this.onChangeText}
+				onButtonTossPress={this.onButtonTossPress}
+			/>
 		);
 	}
 }
@@ -75,20 +63,3 @@ const mapActionsToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(TossingFilterContainer);
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#000000',
-	},
-	header: {
-		fontSize: 18,
-		textAlign: 'left',
-		margin: 10,
-		fontWeight: 'bold',
-		color: '#0000FF',
-	},
-	howmanydice: {
-		color: '#0000FF',
-	},
-});
