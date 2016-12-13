@@ -27,9 +27,11 @@ export default class PageTossing extends Component {
 }
 
 PageTossing.propTypes = {
+	// Incoming props
 	dice: React.PropTypes.array,
 	howmanydice: React.PropTypes.number,
 
+	// Outgoing callbacks
 	onButtonTossPress: React.PropTypes.func.isRequired,
 	onChangeText: React.PropTypes.func.isRequired,
 };

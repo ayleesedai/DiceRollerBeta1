@@ -15,6 +15,7 @@ export default class DiceRender extends Component {
 }
 
 DiceRender.propTypes = {
+	// Incoming props
 	dice: React.PropTypes.array,
 };
 

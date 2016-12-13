@@ -12,6 +12,7 @@ export default class DieRender extends Component {
 }
 
 DieRender.propTypes = {
+	// Incoming props 
 	die: React.PropTypes.object,
 };
 
