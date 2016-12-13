@@ -12,10 +12,11 @@
     "react-native-windows": "^0.39.0",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.4"
   },
   "jest": {
-    "preset": "jest-react-native"
+    "preset": "react-native"
   },
   "devDependencies": {
     "babel-jest": "17.0.2",
@@ -23,7 +24,7 @@
     "eslint": "^3.11.1",
     "eslint-plugin-react": "^6.7.1",
     "jest": "17.0.3",
-    "jest-react-native": "17.0.3",
+    "jest-react-native": "17.1.0",
     "react-test-renderer": "15.3.2",
     "rnpm-plugin-windows": "^0.2.3",
     "whatwg-fetch": "^2.0.1"

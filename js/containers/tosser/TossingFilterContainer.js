@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as tosserActions from './actionsCreator.js';
+import * as TosserActions from './actionsCreator.js';
+import { getDice } from './selectors';
 import PageTossing from '../../components/tosser/PageTossing';
 
 export class TossingFilterContainer extends Component {
@@ -50,16 +52,14 @@ TossingFilterContainer.propTypes = {
 };
 
 const mapStateToProps = state => {
-	const { dice } = state.tosser;
+	const dice = getDice(state);
 	return {
 		dice,
 	};
 };
 
 const mapActionsToProps = dispatch => {
-	return {
-		generateDice: dice => dispatch(tosserActions.generateDice(dice)),
-	};
+	return bindActionCreators(TosserActions, dispatch);
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(TossingFilterContainer);

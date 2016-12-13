@@ -1,1 +1,1 @@
-export const GENERATE_DICE = 'GENERATE_DICE';
+export const GENERATE_DICE = 'TOSSER_GENERATE_DICE';
