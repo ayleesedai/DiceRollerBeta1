@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		flexWrap: 'wrap',
 		alignItems: 'flex-start',
-		backgroundColor: '#000000',
 		marginTop: 10
 	},
 });

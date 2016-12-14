@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
 	container: {
 		margin: 5, 
 		borderRadius: 10, 
-		backgroundColor: '#0000FF'
+		backgroundColor: '#0277bd'
 	},
 	die: {
 		marginTop: 10,
-		color: '#FFFFFF',
+		color: '#e3f2fd',
 		fontSize: 25,
 		textAlign: 'center',
 		width: 60,

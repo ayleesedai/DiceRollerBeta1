@@ -18,7 +18,7 @@ export default class PageTossing extends Component {
 					onPress={this.props.onButtonTossPress}
 					title={`Lancia ${this.props.howmanydice} ${dado} da venti`}
 					accessibilityLabel="Lancia i dadi"
-					color='#0000FF'
+					color='#01579b'
 				/>
 				<DiceRender dice={this.props.dice} />
 			</View>
@@ -39,16 +39,16 @@ PageTossing.propTypes = {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#000000',
+		backgroundColor: '#2196f3',
 	},
 	header: {
-		fontSize: 18,
+		fontSize: 20,
 		textAlign: 'left',
 		margin: 10,
 		fontWeight: 'bold',
-		color: '#0000FF',
+		color: '#ffffff',
 	},
 	howmanydice: {
-		color: '#0000FF',
+		color: '#ffffff',
 	},
 });
