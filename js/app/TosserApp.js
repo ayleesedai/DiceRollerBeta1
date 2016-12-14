@@ -6,7 +6,7 @@ import LoginContainer from '../containers/user/LoginContainer';
 export default class TosserApp extends React.Component {
 	render() {
 		return (
-			<LoginContainer/>
+			<TossingFilterContainer/>
 		);
 	}
 }
