@@ -37,7 +37,7 @@ export class LoginContainer extends Component {
 	}
 
 	onLoginPress() {
-
+		this.props.login('andrea.briozzo@gmail.com', true);
 	}
 
 	onPasswordChange(password) {
