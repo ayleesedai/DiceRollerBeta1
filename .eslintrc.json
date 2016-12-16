@@ -17,22 +17,22 @@
         "react"
     ],
     "rules": {
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
         "indent": [
-            "error",
+            1,
             "tab"
         ],
         "linebreak-style": [
-            "error",
+            1,
             "windows"
         ],
         "quotes": [
-            "error",
+            1,
             "single"
         ],
         "semi": [
-            "error",
+            2,
             "always"
         ]
     }
