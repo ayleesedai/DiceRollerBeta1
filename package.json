@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
     "react": "15.4.0",
     "react-native": "0.39.2",
     "react-native-windows": "^0.39.0",
@@ -27,6 +28,7 @@
     "jest-react-native": "17.1.0",
     "react-test-renderer": "15.3.2",
     "rnpm-plugin-windows": "^0.2.3",
+    "typescript": "^2.2.0-dev.20161217",
     "whatwg-fetch": "^2.0.1"
   }
 }
