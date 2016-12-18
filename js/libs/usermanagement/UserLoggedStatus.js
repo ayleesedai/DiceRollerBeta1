@@ -1,0 +1,9 @@
+export const ERROR_EMAIL_NOT_VERIFIED = Symbol('user_status_errorEmailNotVerified');
+export const ERROR_GENERIC = Symbol('user_status_errorGeneric');
+export const ERROR_PASSWORD_TOO_WEAK = Symbol('user_status_errorPasswordTooWeak');
+export const ERROR_EMAIL_ALREADY_IN_USE = Symbol('user_status_errorEmailAlreadyInUse');
+export const ERROR_EMAIL_INVALID = Symbol('user_status_errorEmailInvalid');
+export const ERROR_EMAIL_NOT_FOUND = Symbol('user_status_errorEmailNotFound');
+export const ERROR_PASSWORD_WRONG = Symbol('user_status_errorPasswordWrong');
+export const NOT_LOGGED = Symbol('user_status_notLogged');
+export const OK_LOGGED = Symbol('user_status_okLogged');
