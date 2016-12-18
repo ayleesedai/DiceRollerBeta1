@@ -25,9 +25,17 @@ class FirebaseWrapper {
 	 */
 	constructor() {
 		this[_userAuthListenerList] = [];
+
 		this._onAuthStateChanged = this._onAuthStateChanged.bind(this);
 		this._fireUserStatusChanged = this._fireUserStatusChanged.bind(this);
 		this._convertFirebaseError = this._convertFirebaseError.bind(this);
+		this.login = this.login.bind(this);
+		this.logout = this.logout.bind(this);
+		this.createAccount = this.createAccount.bind(this);
+		this.resetPassword = this.resetPassword.bind(this);
+		this.sendMailVerification = this.sendMailVerification.bind(this);
+		this.registerUserStatusListener = this.registerUserStatusListener.bind(this);
+		this.unregisterUserStatusListener = this.unregisterUserStatusListener.bind(this);
 
 		var config = {
 			apiKey: 'AIzaSyDH-bsGA7zTuXZbHC8olEIkkOQcaZniSh0',
@@ -37,6 +45,7 @@ class FirebaseWrapper {
 			messagingSenderId: '842740070280'
 		};
 		firebase.initializeApp(config);
+		this.logout();
 		firebase.auth().onAuthStateChanged(this._onAuthStateChanged);
 	}
 
@@ -48,6 +57,7 @@ class FirebaseWrapper {
 
 	_onAuthStateChanged(user) {
 		let status = UserLoggedStatus.NOT_LOGGED;
+		console.log(user);
 		if(user) {
 			if(user.emailVerified) {
 				status = UserLoggedStatus.OK_LOGGED;
@@ -160,7 +170,7 @@ class FirebaseWrapper {
 	 */
 	registerUserStatusListener(userAuthenticationListenerCallback) {
 		// try to remove callback if already present
-		this.unregisterUserListener(userAuthenticationListenerCallback);
+		this.unregisterUserStatusListener(userAuthenticationListenerCallback);
 		// add callback to internal listeners list
 		this[_userAuthListenerList].push(userAuthenticationListenerCallback);
 	}

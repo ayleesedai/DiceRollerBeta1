@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import * as UserActions from './actionCreators';
 import PageUserLogin from '../../components/user/PageUserLogin';
 import PageUserRegistration from '../../components/user/PageUserRegistration';
+import firebaseWrapper from './../../libs/firebase/FirebaseWrapper';
+import * as UserLoggedStatus from './../../libs/usermanagement/UserLoggedStatus';
 
 export class LoginContainer extends Component {
 	constructor(props) {
@@ -16,7 +18,10 @@ export class LoginContainer extends Component {
 		this.onPasswordChange = this.onPasswordChange.bind(this);
 		this.onPasswordConfirmChange = this.onPasswordConfirmChange.bind(this);
 		this.onRegisterPress = this.onRegisterPress.bind(this);
-		this.onResetPasswordPress = this.onResetPasswordPress.bind(this);				
+		this.onResetPasswordPress = this.onResetPasswordPress.bind(this);
+		this.onUserStatusChanged = this.onUserStatusChanged.bind(this);
+
+		firebaseWrapper.registerUserStatusListener(this.onUserStatusChanged);
 
 		this.state = {
 			loggin: true,
@@ -28,6 +33,16 @@ export class LoginContainer extends Component {
 		};
 	}
 
+	onUserStatusChanged(status) {
+		console.log("USER STATUS", status.toString());
+		switch(status) {
+		case UserLoggedStatus.OK_LOGGED: {
+			this.props.login('andrea.briozzo@gmail.com', true);
+			break;
+		}
+		}
+	}
+
 	onCreateAccountPress() {
 		this.setState({ loggin: false, registering: true });
 	}
@@ -37,7 +52,7 @@ export class LoginContainer extends Component {
 	}
 
 	onLoginPress() {
-		this.props.login('andrea.briozzo@gmail.com', true);
+		firebaseWrapper.login(this.state.email, this.state.password);
 	}
 
 	onPasswordChange(password) {
@@ -50,10 +65,11 @@ export class LoginContainer extends Component {
 
 	onRegisterPress() {
 		this.setState({ loggin: true, registering: false });
+		firebaseWrapper.createAccount(this.state.email, this.state.password);
 	}
 
 	onResetPasswordPress() {
-
+		firebaseWrapper.resetPassword(this.state.email);
 	}				
 
 	render() {
