@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default class DieRender extends Component {
 	render() {
 		return (
-			<View style={styles.container}>
+			<View style={styles.containerd}>
 				<Text style={styles.die}>{this.props.die.value}</Text>
 			</View>
 		);
@@ -21,7 +21,7 @@ DieRender.defaultProps = {
 };
 	
 const styles = StyleSheet.create({
-	container: {
+	containerd: {
 		margin: 5, 
 		borderRadius: 10, 
 		backgroundColor: '#0277bd'
