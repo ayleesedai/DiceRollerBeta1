@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import { Text, TouchableHighlight } from 'react-native';
-import { buttonPlain as styles, buttonPlainExtra as stylesExtra } from './../../styles.css';
+
+import ButtonPlainEnabled from './buttons/ButtonPlainEnabled';
+import ButtonPlainDisabled from './buttons/ButtonPlainDisabled';
 
 export default class ButtonPlain extends Component {
 	render() {
-		return (
-			<TouchableHighlight style={styles.background} underlayColor={stylesExtra.underlayColor} onPress={this.props.onPress}>
-				<Text style={styles.text}>
-					{this.props.text}
-				</Text>
-			</TouchableHighlight>
-		);
+		if(this.props.disabled) {
+			return <ButtonPlainDisabled text={this.props.text} />;
+		}
+		else {
+			return <ButtonPlainEnabled text={this.props.text} onPress={this.props.onPress} />;
+		}
 	}
 }
 
 ButtonPlain.propTypes = {
+	disabled: React.PropTypes.bool,
 	onPress: React.PropTypes.func.isRequired,
 	text: React.PropTypes.string.isRequired,
+};
+
+ButtonPlain.defaultProps = {
+	disabled: false,
 };

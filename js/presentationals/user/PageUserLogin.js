@@ -22,9 +22,9 @@ export default class PageUserLogin extends Component {
 			<View style={styles.container}>
 				<TextInputPlain placeholder="Inserire e-mail" value={this.props.userEmail} onChangeText={this.props.onEmailChange} keyboardType="email-address" />
 				<TextInputPlain placeholder="Inserire password" value={this.props.userPassword} onChangeText={this.props.onPasswordChange} secureTextEntry={true} />
-				<ButtonPlain onPress={this.props.onLoginPress} text="Login" />
+				<ButtonPlain onPress={this.props.onLoginPress} text="Login" disabled={this.props.loginDisabled} />
 				<ButtonPlain onPress={this.props.onCreateAccountPress} text="Create account" />
-				<ButtonPlain onPress={this.props.onResetPasswordPress} text="Reset password" />
+				<ButtonPlain onPress={this.props.onResetPasswordPress} text="Reset password" disabled={this.props.resetPasswordDisabled} />
 			</View>
 		);
 	}
@@ -34,6 +34,8 @@ PageUserLogin.propTypes = {
 	// Incoming props
 	userEmail: React.PropTypes.string,
 	userPassword: React.PropTypes.string,
+	loginDisabled: React.PropTypes.bool,
+	resetPasswordDisabled: React.PropTypes.bool,
 
 	// Outgoing callbacks
 	onCreateAccountPress: React.PropTypes.func.isRequired,
@@ -41,4 +43,9 @@ PageUserLogin.propTypes = {
 	onLoginPress: React.PropTypes.func.isRequired,
 	onPasswordChange: React.PropTypes.func.isRequired,
 	onResetPasswordPress: React.PropTypes.func.isRequired,
+};
+
+PageUserLogin.defaultProps = {
+	loginDisabled: false,
+	resetPasswordDisabled: false,
 };

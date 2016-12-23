@@ -5,7 +5,7 @@ import TossingFilterContainer from '../containers/tosser/TossingFilterContainer'
 import LoginContainer from '../containers/user/LoginContainer';
 import { getLogged } from '../containers/user/selectors';
 import firebaseWrapper from './../libs/firebase/FirebaseWrapper';
-import RootView from './../presentationals/RootView';
+import RootView from './../presentationals/roots/RootView';
 
 export class TosserApp extends React.Component {
 

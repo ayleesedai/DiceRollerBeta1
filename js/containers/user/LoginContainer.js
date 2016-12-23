@@ -7,6 +7,7 @@ import PageUserLogin from '../../presentationals/user/PageUserLogin';
 import PageUserRegistration from '../../presentationals/user/PageUserRegistration';
 import firebaseWrapper from './../../libs/firebase/FirebaseWrapper';
 import * as UserLoggedStatus from './../../libs/usermanagement/UserLoggedStatus';
+import UserRootView from './../../presentationals/roots/UserRootView';
 
 export class LoginContainer extends Component {
 	constructor(props) {
@@ -78,32 +79,48 @@ export class LoginContainer extends Component {
 		this.setState({ loggin: true, registering: false });
 	}
 
+	_isEmailValid() {
+		return this.state.email && (this.state.email.length > 0) && (this.state.email.indexOf('@') > 0);
+	}
+
+	_isPasswordValid() {
+		return this.state.password && (this.state.password.length > 8);
+	}
+
+	_isResetPasswordDisabled() {
+		return !this._isEmailValid();
+	}
+
+	_isLoginDisabled() {
+		return !this._isEmailValid() || !this._isPasswordValid();
+	}
+
 	render() {
-		if(this.state.loggin) {
-			return (
-				<PageUserLogin
-					userEmail={this.state.email}
-					userPassword={this.state.password}
-					onCreateAccountPress={this.onCreateAccountPress}
-					onEmailChange={this.onEmailChange}
-					onLoginPress={this.onLoginPress}
-					onPasswordChange={this.onPasswordChange}
-					onResetPasswordPress={this.onResetPasswordPress} />
-			);
-		}
-		else {
-			return (
-				<PageUserRegistration 
-					userEmail={this.state.email}
-					userPassword={this.state.password}
-					userPasswordConfirm={this.state.passwordConfirmation}
-					onEmailChange={this.onEmailChange}
-					onPasswordChange={this.onPasswordChange}
-					onPasswordConfirmChange={this.onPasswordConfirmChange}
-					onRegisterPress={this.onRegisterPress}
-					onCancelRegisterPress={this.onCancelRegisterPress} />
-			);
-		}
+		const child = this.state.loggin
+		? (<PageUserLogin
+			userEmail={this.state.email}
+			userPassword={this.state.password}
+			loginDisabled={this._isLoginDisabled()}
+			resetPasswordDisabled={this._isResetPasswordDisabled()}
+			onCreateAccountPress={this.onCreateAccountPress}
+			onEmailChange={this.onEmailChange}
+			onLoginPress={this.onLoginPress}
+			onPasswordChange={this.onPasswordChange}
+			onResetPasswordPress={this.onResetPasswordPress} />)
+		: (<PageUserRegistration 
+			userEmail={this.state.email}
+			userPassword={this.state.password}
+			userPasswordConfirm={this.state.passwordConfirmation}
+			onEmailChange={this.onEmailChange}
+			onPasswordChange={this.onPasswordChange}
+			onPasswordConfirmChange={this.onPasswordConfirmChange}
+			onRegisterPress={this.onRegisterPress}
+			onCancelRegisterPress={this.onCancelRegisterPress} />);
+		return (
+			<UserRootView>
+				{child}
+			</UserRootView>
+		);
 	}
 }
 

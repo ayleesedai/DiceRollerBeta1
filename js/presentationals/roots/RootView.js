@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import { rootView as styles} from './styles.css.js';
+import { rootView as styles} from './../styles.css.js';
 
 class RootView extends Component {
 	render() {
