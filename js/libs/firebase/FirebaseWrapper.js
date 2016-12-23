@@ -11,7 +11,8 @@ const _userAuthListenerList = Symbol('userAuthListenerList');
 
 /**
  * Wraps the firebase nodemodule, to easily access user management and database usage
- * So far, all user interaction ara asynchronous. Maybe in the future I will rule them all
+ * So far, all user interaction ara asynchronous. Maybe in the future I will rule them all.
+ * Remember to call initialize() and terminate() methods in your root component.
  * 
  * @class FirebaseWrapper
  */
@@ -36,17 +37,6 @@ class FirebaseWrapper {
 		this.sendMailVerification = this.sendMailVerification.bind(this);
 		this.registerUserStatusListener = this.registerUserStatusListener.bind(this);
 		this.unregisterUserStatusListener = this.unregisterUserStatusListener.bind(this);
-
-		var config = {
-			apiKey: 'AIzaSyDH-bsGA7zTuXZbHC8olEIkkOQcaZniSh0',
-			authDomain: 'global-authentication-server.firebaseapp.com',
-			databaseURL: 'https://global-authentication-server.firebaseio.com',
-			storageBucket: 'global-authentication-server.appspot.com',
-			messagingSenderId: '842740070280'
-		};
-		firebase.initializeApp(config);
-		this.logout();
-		firebase.auth().onAuthStateChanged(this._onAuthStateChanged);
 	}
 
 	_fireUserStatusChanged(status) {
@@ -78,6 +68,36 @@ class FirebaseWrapper {
 		case FireBaseErrorCode.WRONG_PASSWORD: return UserLoggedStatus.ERROR_PASSWORD_WRONG;
 		default: return UserLoggedStatus.ERROR_GENERIC;
 		}
+	}
+
+	/**
+	 * Initializes firebase module, registering to callback notifications
+	 * Firebase wrapper is a singleton. You must call initialize
+	 * (and terminate) method in your root application
+	 * 
+	 * @memberOf FirebaseWrapper
+	 */
+	initialize() {
+		var config = {
+			apiKey: 'AIzaSyDH-bsGA7zTuXZbHC8olEIkkOQcaZniSh0',
+			authDomain: 'global-authentication-server.firebaseapp.com',
+			databaseURL: 'https://global-authentication-server.firebaseio.com',
+			storageBucket: 'global-authentication-server.appspot.com',
+			messagingSenderId: '842740070280'
+		};
+		firebase.initializeApp(config);
+		firebase.auth().onAuthStateChanged(this._onAuthStateChanged);
+	}
+
+	/**
+	 * Terminates firebase module, trying to perform a logout action.
+	 * Firebase wrapper is a singleton. You must call terminate
+	 * (and initialize) method in your root application
+	 * 
+	 * @memberOf FirebaseWrapper
+	 */
+	terminate() {
+		this.logout();
 	}
 
 	/**

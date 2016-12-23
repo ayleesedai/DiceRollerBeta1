@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as UserActions from './actionCreators';
-import PageUserLogin from '../../components/user/PageUserLogin';
-import PageUserRegistration from '../../components/user/PageUserRegistration';
+import PageUserLogin from '../../presentationals/user/PageUserLogin';
+import PageUserRegistration from '../../presentationals/user/PageUserRegistration';
 import firebaseWrapper from './../../libs/firebase/FirebaseWrapper';
 import * as UserLoggedStatus from './../../libs/usermanagement/UserLoggedStatus';
 
@@ -12,6 +12,7 @@ export class LoginContainer extends Component {
 	constructor(props) {
 		super(props);
 
+		this.onCancelRegisterPress = this.onCancelRegisterPress.bind(this);
 		this.onCreateAccountPress = this.onCreateAccountPress.bind(this);
 		this.onEmailChange = this.onEmailChange.bind(this);
 		this.onLoginPress = this.onLoginPress.bind(this);
@@ -52,7 +53,8 @@ export class LoginContainer extends Component {
 	}
 
 	onLoginPress() {
-		firebaseWrapper.login(this.state.email, this.state.password);
+		//FIXME firebaseWrapper.login(this.state.email, this.state.password);
+		this.props.login('andrea.briozzo@gmail.com', true);
 	}
 
 	onPasswordChange(password) {
@@ -65,12 +67,16 @@ export class LoginContainer extends Component {
 
 	onRegisterPress() {
 		this.setState({ loggin: true, registering: false });
-		firebaseWrapper.createAccount(this.state.email, this.state.password);
+		//FIXME firebaseWrapper.createAccount(this.state.email, this.state.password);
 	}
 
 	onResetPasswordPress() {
-		firebaseWrapper.resetPassword(this.state.email);
+		//FIXME firebaseWrapper.resetPassword(this.state.email);
 	}				
+
+	onCancelRegisterPress() {
+		this.setState({ loggin: true, registering: false });
+	}
 
 	render() {
 		if(this.state.loggin) {
@@ -94,7 +100,8 @@ export class LoginContainer extends Component {
 					onEmailChange={this.onEmailChange}
 					onPasswordChange={this.onPasswordChange}
 					onPasswordConfirmChange={this.onPasswordConfirmChange}
-					onRegisterPress={this.onRegisterPress} />
+					onRegisterPress={this.onRegisterPress}
+					onCancelRegisterPress={this.onCancelRegisterPress} />
 			);
 		}
 	}

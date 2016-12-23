@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import * as TosserActions from './actionsCreator.js';
 import { getDice } from './selectors';
-import PageTossing from '../../components/tosser/PageTossing';
+import PageTossing from '../../presentationals/tosser/PageTossing';
 
 export class TossingFilterContainer extends Component {
 	constructor(props) {

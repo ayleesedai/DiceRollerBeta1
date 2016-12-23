@@ -10,17 +10,21 @@
  */
 
 import React, { Component } from 'react';
-import { Button, StyleSheet, TextInput, View } from 'react-native';
+import { View } from 'react-native';
+
+import ButtonPlain from './../_base/button/ButtonPlain';
+import TextInputPlain from './../_base/button/TextInputPlain';
+import { pageUserLogin as styles } from './../styles.css.js';
 
 export default class PageUserLogin extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<TextInput style={styles.email} placeholder="Inserire e-mail" value={this.props.userEmail} onChangeText={this.props.onEmailChange} keyboardType="email-address" />
-				<TextInput style={styles.password} placeholder="Inserire password" value={this.props.userPassword} onChangeText={this.props.onPasswordChange} secureTextEntry={true} />
-				<Button style={styles.loginButton} onPress={this.props.onLoginPress} title="Login" />
-				<Button style={styles.createButton} onPress={this.props.onCreateAccountPress} title="Create account" />
-				<Button style={styles.resetButton} onPress={this.props.onResetPasswordPress} title="Reset password" />
+				<TextInputPlain placeholder="Inserire e-mail" value={this.props.userEmail} onChangeText={this.props.onEmailChange} keyboardType="email-address" />
+				<TextInputPlain placeholder="Inserire password" value={this.props.userPassword} onChangeText={this.props.onPasswordChange} secureTextEntry={true} />
+				<ButtonPlain onPress={this.props.onLoginPress} text="Login" />
+				<ButtonPlain onPress={this.props.onCreateAccountPress} text="Create account" />
+				<ButtonPlain onPress={this.props.onResetPasswordPress} text="Reset password" />
 			</View>
 		);
 	}
@@ -38,14 +42,3 @@ PageUserLogin.propTypes = {
 	onPasswordChange: React.PropTypes.func.isRequired,
 	onResetPasswordPress: React.PropTypes.func.isRequired,
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
-	email: {},
-	password: {},
-	loginButton: {},
-	createButton: {},
-	resetButton: {},
-});
