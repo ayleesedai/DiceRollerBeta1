@@ -3,10 +3,13 @@ import { StyleSheet } from 'react-native';
 // Internal constants
 //FONTS
 const FONT_SIZE_NORMAL = 20;
+const FONT_SIZE_DIE = 25;
 // COLORS
-const COLOR_BACKGROUND = '#2196f3';
-const COLOR_BACKGROUND_BUTTON = '#01579b';
+const COLOR_BACKGROUND = '#2196F3';
+const COLOR_BACKGROUND_BUTTON = '#01579B';
+const COLOR_BACKGROUND_DIE = '#0277BD';
 const COLOR_TEXT = 'white';
+const COLOR_TEXT_DIE = '#E3F2FD';
 
 // ButtonPlain
 export const buttonPlain = StyleSheet.create({
@@ -23,7 +26,7 @@ export const buttonPlain = StyleSheet.create({
 });
 
 export const buttonPlainExtra = {
-	underlayColor: COLOR_BACKGROUND,
+	underlayColor: COLOR_BACKGROUND_DIE,
 };
 
 // TextInputPlain
@@ -79,12 +82,12 @@ export const dieRender = StyleSheet.create({
 	view: {
 		margin: 5, 
 		borderRadius: 10, 
-		backgroundColor: '#0277bd'
+		backgroundColor: COLOR_BACKGROUND_DIE,
 	},
 	text: {
 		marginTop: 10,
-		color: '#e3f2fd',
-		fontSize: 25,
+		color: COLOR_TEXT_DIE,
+		fontSize: FONT_SIZE_DIE,
 		textAlign: 'center',
 		width: 60,
 		height: 50,
