@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { textPlain as styles } from './../../styles.css';
+import { textPlain as styles } from './../styles.css.js';
 
 export default class TextPlain extends Component {
 	render() {

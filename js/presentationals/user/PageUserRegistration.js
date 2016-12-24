@@ -9,8 +9,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import ButtonPlain from './../_base/button/ButtonPlain';
-import TextInputPlain from './../_base/button/TextInputPlain';
+import ButtonPlain from './../_base/ButtonPlain';
+import TextInputPlain from './../_base/TextInputPlain';
 import { pageUserRegistration as styles } from './../styles.css.js';
 
 export default class PageUserRegistration extends Component {

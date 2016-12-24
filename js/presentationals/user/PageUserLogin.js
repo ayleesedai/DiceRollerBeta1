@@ -12,8 +12,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import ButtonPlain from './../_base/button/ButtonPlain';
-import TextInputPlain from './../_base/button/TextInputPlain';
+import ButtonPlain from './../_base/ButtonPlain.js';
+import TextInputPlain from './../_base/TextInputPlain';
 import { pageUserLogin as styles } from './../styles.css.js';
 
 export default class PageUserLogin extends Component {

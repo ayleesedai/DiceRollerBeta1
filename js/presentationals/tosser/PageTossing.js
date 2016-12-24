@@ -3,9 +3,9 @@ import { View } from 'react-native';
 
 import DiceRender from './DiceRender';
 import { pageTossing as styles } from './../styles.css.js';
-import TextPlain from './../_base/button/TextPlain';
-import ButtonPlain from './../_base/button/ButtonPlain';
-import TextInputPlain from './../_base/button/TextInputPlain';
+import TextPlain from './../_base/TextPlain';
+import ButtonPlain from './../_base/ButtonPlain';
+import TextInputPlain from './../_base/TextInputPlain';
 
 export default class PageTossing extends Component {
 	render() {

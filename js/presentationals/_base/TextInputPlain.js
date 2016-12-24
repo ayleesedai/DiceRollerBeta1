@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 
-import { textInputPlain as styles} from './../../styles.css.js';
+import { textInputPlain as styles} from './../styles.css.js';
 
 export default class TextInputPlain extends Component {
 	render() {

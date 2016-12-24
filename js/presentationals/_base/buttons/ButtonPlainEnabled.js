@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, TouchableHighlight } from 'react-native';
-import { buttonPlain as styles, buttonPlainExtra as stylesExtra } from './../../../styles.css';
+import { buttonPlain as styles, buttonPlainExtra as stylesExtra } from './../../styles.css.js';
 
 export default class ButtonPlainEnabled extends Component {
 	render() {

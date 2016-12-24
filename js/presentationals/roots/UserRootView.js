@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 
 import { userRootView as styles} from './../styles.css.js';
-import TextPlain from './../_base/button/TextPlain';
+import TextPlain from './../_base/TextPlain';
 
 class UserRootView extends Component {
 	render() {
