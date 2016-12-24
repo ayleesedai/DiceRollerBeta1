@@ -7,7 +7,7 @@ import * as FireBaseErrorCode from './FireBaseErrorCode';
  * Class internal fields keys
  * We use the Symbol paradimg to define private class fields
  */
-const _userAuthListenerList = Symbol('userAuthListenerList');
+const _userAuthListenerList = 'userAuthListenerList_key';
 
 /**
  * Wraps the firebase nodemodule, to easily access user management and database usage
@@ -40,9 +40,7 @@ class FirebaseWrapper {
 	}
 
 	_fireUserStatusChanged(status) {
-		for(let callback of this[_userAuthListenerList]) {
-			callback(status);
-		}
+		this[_userAuthListenerList].forEach(callback => callback(status));
 	}
 
 	_onAuthStateChanged(user) {
