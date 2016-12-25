@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { TextInput } from 'react-native';
 
 import { textInputPlain as styles} from './../styles.css.js';
@@ -8,19 +8,22 @@ export default class TextInputPlain extends Component {
 		return (
 			<TextInput 
 				style={styles.textInput} 
-				placeholder={this.props.placeholder} 
-				value={this.props.value} 
+				keyboardType={this.props.keyboardType} 
 				onChangeText={this.props.onChangeText} 
-				keyboardType={this.props.keyboardType} />
+				placeholder={this.props.placeholder} 
+				secureTextEntry={this.props.secureTextEntry}
+				value={this.props.value} 
+			/>
 		);
 	}
 }
 
 TextInputPlain.propTypes = {
-	keyboardType: React.PropTypes.string, 
-	onChangeText: React.PropTypes.func, 
-	placeholder: React.PropTypes.string, 
-	value: React.PropTypes.string, 
+	keyboardType: PropTypes.string, 
+	onChangeText: PropTypes.func, 
+	placeholder: PropTypes.string, 
+	secureTextEntry: PropTypes.bool, 
+	value: PropTypes.string, 
 };
 
 TextInputPlain.defaultProps = {

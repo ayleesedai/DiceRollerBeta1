@@ -23,11 +23,11 @@ export const getLogged = createSelector([getUser],(user) => {
 });
 
 export const isEmailValid = createSelector([getEmail],(email) => {
-	return email && (email.length > 0) && (email.indexOf('@') > 0);
+	return Boolean(email) && (email.length > 0) && (email.indexOf('@') > 0);
 });
 
 export const isPasswordValid = createSelector([getPassword],(password) => {
-	return password && (password.length > 8);
+	return (password!==undefined) && (password!==null) && (password.length >= 8);
 });
 
 export const isPasswordConfirmationValid = createSelector([getPassword, getPasswordConfirmation, isPasswordValid],(password, passwordConfirmation, passwordValid) => {

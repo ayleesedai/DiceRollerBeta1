@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import TossingFilterContainer from '../containers/tosser/TossingFilterContainer';
-import LoginContainer from '../containers/user/LoginContainer';
+import NavigatorApp from './../containers/navigator/NavigatorApp';
 import { getLogged } from '../containers/user/selectors';
 import firebaseWrapper from './../libs/firebase/FirebaseWrapper';
 import RootView from './../presentationals/roots/RootView';
@@ -20,12 +19,9 @@ export class TosserApp extends React.Component {
 	}
 	
 	render() {
-		console.log('userLogged', this.props.userLogged);
-		// FIXME: temporaneo, questa logichetta finirà nel navigatore di scene
-		const child = this.props.userLogged ? <TossingFilterContainer /> : <LoginContainer />;
 		return (
 			<RootView>
-				{child}
+				<NavigatorApp />
 			</RootView>
 		);
 	}

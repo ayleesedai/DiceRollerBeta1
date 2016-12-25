@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
 const NavigatorContainerHOC = ComponentClass => {
-	const key = '_yourAppNavigationContainerNavigateCall';
+	const key = '_tosserAppNavigationContainerNavigateCall';
 
 	class Container extends Component {
 

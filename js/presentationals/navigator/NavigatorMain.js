@@ -6,16 +6,17 @@ import { navigatorMain as styles} from './../styles.css.js';
 const NavigatorMain = (props) => {
 	return (
 		<NavigationExperimental.CardStack
-			key={props.key}
+			key={props.stackkey}
 			onNavigateBack={props.onNavigateBack}
 			navigationState={props.navigationState}
 			renderScene={props.renderScene}
+			cardStyle={styles.navigatorParent}
 			style={styles.navigatorCardStack} />
 	);
 };
 
 NavigatorMain.propTypes = {
-	key: PropTypes.string.isRequired,
+	stackkey: PropTypes.string.isRequired,
 	navigationState: PropTypes.object.isRequired,
 	onNavigateBack: PropTypes.func.isRequired,
 	renderScene: PropTypes.func.isRequired,

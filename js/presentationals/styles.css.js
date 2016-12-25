@@ -140,7 +140,10 @@ export const diceRender = StyleSheet.create({
 
 // NAVIGATOR
 export const navigatorMain = StyleSheet.create({
+	navigatorParent: {
+		backgroundColor: 'transparent',
+	},
 	navigatorCardStack: {
-		flex: 20
+		flex: 1,
 	}
 });

@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { NavigationExperimental } from 'react-native';
 import NavigatorContainerHOC from './NavigatorContainerHOC';
 import * as NavUtil from './NavigatorStateTosser.util';
+import LoginContainer from './../user/LoginContainer';
+import RegistrationContainer from './../user/RegistrationContainer';
+import TossingFilterContainer from './../tosser/TossingFilterContainer';
 
 class NavigatorTosserSceneContainer extends Component {
 
@@ -13,10 +16,14 @@ class NavigatorTosserSceneContainer extends Component {
 	}
 
 	getContainer() {
-		/*switch(this.props.scene) {
+		switch(this.props.scene.route.key) {
 		case NavUtil.SCENE_USER_LOGIN_KEY:
-
-		}*/
+			return <LoginContainer navigate={this.props.navigate} />;
+		case NavUtil.SCENE_USER_REGISTER_KEY:
+			return <RegistrationContainer navigate={this.props.navigate} />;
+		case NavUtil.SCENE_MAIN_TOSSER_KEY:
+			return <TossingFilterContainer navigate={this.props.navigate} />;			
+		}
 		return null;
 	}
 

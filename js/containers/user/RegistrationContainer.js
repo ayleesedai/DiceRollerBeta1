@@ -3,20 +3,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as UserActions from './actionCreators';
-import { getEmail, getPassword, isEmailValid, isPasswordValid } from './selectors';
-import PageUserLogin from '../../presentationals/user/PageUserLogin';
+import { getEmail, getPassword, getPasswordConfirmation, isEmailValid, isPasswordValid, isPasswordConfirmationValid } from './selectors';
+import PageUserRegistration from '../../presentationals/user/PageUserRegistration';
 import firebaseWrapper from './../../libs/firebase/FirebaseWrapper';
 import * as UserLoggedStatus from './../../libs/usermanagement/UserLoggedStatus';
 import UserRootView from './../../presentationals/roots/UserRootView';
-import { push, selectTab, TAB_MAIN_KEY, SCENE_USER_REGISTER_KEY } from './../navigator/NavigatorStateTosser.util';
+import { pop, selectTab, TAB_MAIN_KEY } from './../navigator/NavigatorStateTosser.util';
 
 export class LoginContainer extends Component {
 	constructor(props, context) {
 		super(props, context);
 
-		this.onCreateAccountPress = this.onCreateAccountPress.bind(this);
-		this.onLoginPress = this.onLoginPress.bind(this);
-		this.onResetPasswordPress = this.onResetPasswordPress.bind(this);
+		this.onCancelRegisterPress = this.onCancelRegisterPress.bind(this);
+		this.onRegisterPress = this.onRegisterPress.bind(this);
 		this.onUserStatusChanged = this.onUserStatusChanged.bind(this);
 
 		firebaseWrapper.registerUserStatusListener(this.onUserStatusChanged);
@@ -37,41 +36,27 @@ export class LoginContainer extends Component {
 		}
 	}
 
-	onCreateAccountPress() {
-		this.props.navigate(push(SCENE_USER_REGISTER_KEY));
+	onRegisterPress() {
+		//FIXME firebaseWrapper.createAccount(this.state.email, this.state.password);
+		this.props.navigate(pop());
 	}
 
-	onLoginPress() {
-		//FIXME firebaseWrapper.login(this.state.email, this.state.password);
-		this.props.login(true);
-		this.props.navigate(selectTab(TAB_MAIN_KEY));
-	}
-
-	onResetPasswordPress() {
-		//FIXME firebaseWrapper.resetPassword(this.state.email);
-	}				
-
-	_isResetPasswordDisabled() {
-		return !this.props.emailValid;
-	}
-
-	_isLoginDisabled() {
-		return !this.props.emailValid || !this.props.passwordValid;
+	onCancelRegisterPress() {
+		this.props.navigate(pop());
 	}
 
 	render() {
 		return (
 			<UserRootView>
-				<PageUserLogin
+				<PageUserRegistration 
 					userEmail={this.props.email}
 					userPassword={this.props.password}
-					loginDisabled={this._isLoginDisabled()}
-					resetPasswordDisabled={this._isResetPasswordDisabled()}
-					onCreateAccountPress={this.onCreateAccountPress}
+					userPasswordConfirm={this.props.passwordConfirmation}
 					onEmailChange={this.props.updateEmail}
-					onLoginPress={this.onLoginPress}
 					onPasswordChange={this.props.updatePassword}
-					onResetPasswordPress={this.onResetPasswordPress} />
+					onPasswordConfirmChange={this.props.updatePasswordConfirmation}
+					onRegisterPress={this.onRegisterPress}
+					onCancelRegisterPress={this.onCancelRegisterPress} />
 			</UserRootView>
 		);
 	}
@@ -80,13 +65,16 @@ export class LoginContainer extends Component {
 LoginContainer.propTypes = {
 	email: PropTypes.string, 
 	password: PropTypes.string,
+	passwordConfirmation: PropTypes.string,
 	emailValid: PropTypes.bool,
 	passwordValid: PropTypes.bool,
+	passwordConfirmationValid: PropTypes.bool,
 	// Actions
 	login: PropTypes.func.isRequired,
 	logout: PropTypes.func.isRequired,
 	updateEmail: PropTypes.func.isRequired,
 	updatePassword: PropTypes.func.isRequired,
+	updatePasswordConfirmation: PropTypes.func.isRequired,
 
 	navigate: PropTypes.func.isRequired,
 };
@@ -94,13 +82,17 @@ LoginContainer.propTypes = {
 const mapStateToProps = (state) => {
 	const email = getEmail(state);
 	const password = getPassword(state);
+	const passwordConfirmation = getPasswordConfirmation(state);
 	const emailValid = isEmailValid(state);
 	const passwordValid = isPasswordValid(state);
+	const passwordConfirmationValid = isPasswordConfirmationValid(state);
 	return {
 		email, 
 		password, 
+		passwordConfirmation, 
 		emailValid, 
-		passwordValid
+		passwordValid,
+		passwordConfirmationValid
 	};
 };
 
