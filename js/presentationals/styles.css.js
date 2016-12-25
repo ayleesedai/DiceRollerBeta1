@@ -137,3 +137,10 @@ export const diceRender = StyleSheet.create({
 		marginTop: 10
 	},
 });
+
+// NAVIGATOR
+export const navigatorMain = StyleSheet.create({
+	navigatorCardStack: {
+		flex: 20
+	}
+});

@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as UserActions from './actionCreators';
+import { getEmail, getPassword, getPasswordConfirmation, isEmailValid, isPasswordValid } from './selectors';
 import PageUserLogin from '../../presentationals/user/PageUserLogin';
 import PageUserRegistration from '../../presentationals/user/PageUserRegistration';
 import firebaseWrapper from './../../libs/firebase/FirebaseWrapper';
@@ -15,10 +16,7 @@ export class LoginContainer extends Component {
 
 		this.onCancelRegisterPress = this.onCancelRegisterPress.bind(this);
 		this.onCreateAccountPress = this.onCreateAccountPress.bind(this);
-		this.onEmailChange = this.onEmailChange.bind(this);
 		this.onLoginPress = this.onLoginPress.bind(this);
-		this.onPasswordChange = this.onPasswordChange.bind(this);
-		this.onPasswordConfirmChange = this.onPasswordConfirmChange.bind(this);
 		this.onRegisterPress = this.onRegisterPress.bind(this);
 		this.onResetPasswordPress = this.onResetPasswordPress.bind(this);
 		this.onUserStatusChanged = this.onUserStatusChanged.bind(this);
@@ -28,18 +26,18 @@ export class LoginContainer extends Component {
 		this.state = {
 			loggin: true,
 			registering: false,
-			
-			email: null,
-			password: null,
-			passwordConfirmation: null,
 		};
 	}
+
+	componentWillUnmount() {
+		firebaseWrapper.unregisterUserStatusListener(this.onUserStatusChanged);
+	}	
 
 	onUserStatusChanged(status) {
 		console.log("USER STATUS", status.toString());
 		switch(status) {
 		case UserLoggedStatus.OK_LOGGED: {
-			this.props.login('andrea.briozzo@gmail.com', true);
+			this.props.login(true);
 			break;
 		}
 		}
@@ -49,21 +47,9 @@ export class LoginContainer extends Component {
 		this.setState({ loggin: false, registering: true });
 	}
 
-	onEmailChange(email) {
-		this.setState({ email });
-	}
-
 	onLoginPress() {
 		//FIXME firebaseWrapper.login(this.state.email, this.state.password);
-		this.props.login('andrea.briozzo@gmail.com', true);
-	}
-
-	onPasswordChange(password) {
-		this.setState({ password });
-	}
-
-	onPasswordConfirmChange(passwordConfirmation) {
-		this.setState({ passwordConfirmation });
+		this.props.login(true);
 	}
 
 	onRegisterPress() {
@@ -79,20 +65,12 @@ export class LoginContainer extends Component {
 		this.setState({ loggin: true, registering: false });
 	}
 
-	_isEmailValid() {
-		return this.state.email && (this.state.email.length > 0) && (this.state.email.indexOf('@') > 0);
-	}
-
-	_isPasswordValid() {
-		return this.state.password && (this.state.password.length > 8);
-	}
-
 	_isResetPasswordDisabled() {
-		return !this._isEmailValid();
+		return !this.props.emailValid;
 	}
 
 	_isLoginDisabled() {
-		return !this._isEmailValid() || !this._isPasswordValid();
+		return !this.props.emailValid || !this.props.passwordValid;
 	}
 
 	render() {
@@ -103,17 +81,17 @@ export class LoginContainer extends Component {
 			loginDisabled={this._isLoginDisabled()}
 			resetPasswordDisabled={this._isResetPasswordDisabled()}
 			onCreateAccountPress={this.onCreateAccountPress}
-			onEmailChange={this.onEmailChange}
+			onEmailChange={this.props.updateEmail}
 			onLoginPress={this.onLoginPress}
-			onPasswordChange={this.onPasswordChange}
+			onPasswordChange={this.props.updatePassword}
 			onResetPasswordPress={this.onResetPasswordPress} />)
 		: (<PageUserRegistration 
 			userEmail={this.state.email}
 			userPassword={this.state.password}
 			userPasswordConfirm={this.state.passwordConfirmation}
-			onEmailChange={this.onEmailChange}
-			onPasswordChange={this.onPasswordChange}
-			onPasswordConfirmChange={this.onPasswordConfirmChange}
+			onEmailChange={this.props.updateEmail}
+			onPasswordChange={this.props.updatePassword}
+			onPasswordConfirmChange={this.props.updatePasswordConfirmation}
 			onRegisterPress={this.onRegisterPress}
 			onCancelRegisterPress={this.onCancelRegisterPress} />);
 		return (
@@ -125,14 +103,32 @@ export class LoginContainer extends Component {
 }
 
 LoginContainer.propTypes = {
+	email: PropTypes.string, 
+	password: PropTypes.string,
+	passwordConfirmation: PropTypes.string,
+	emailValid: PropTypes.bool,
+	passwordValid: PropTypes.bool,
 	// Actions
-	login: React.PropTypes.func.isRequired,
-	logout: React.PropTypes.func.isRequired,
+	login: PropTypes.func.isRequired,
+	logout: PropTypes.func.isRequired,
+	updateEmail: PropTypes.func.isRequired,
+	updatePassword: PropTypes.func.isRequired,
+	updatePasswordConfirmation: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = () => {
-	// No props so far
-	return {};
+const mapStateToProps = (state) => {
+	const email = getEmail(state);
+	const password = getPassword(state);
+	const passwordConfirmation = getPasswordConfirmation(state);
+	const emailValid = isEmailValid(state);
+	const passwordValid = isPasswordValid(state);
+	return {
+		email, 
+		password, 
+		passwordConfirmation, 
+		emailValid, 
+		passwordValid
+	};
 };
 
 const mapActionsToProps = dispatch => {
