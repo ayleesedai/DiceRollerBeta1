@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import ExtraRootView from './../../presentationals/_base/ExtraRootView';
 import ExtraToolBar  from './../../presentationals/toolBar/ExtraToolBar';
+import PageCredits from './../../presentationals/credits/PageCredits';
 
 export class CreditsContainer extends Component {
 	constructor(props) {
@@ -14,6 +15,7 @@ export class CreditsContainer extends Component {
 		return (
 			<ExtraRootView>
 				<ExtraToolBar header="Application credits go here" onPressBack={this.props.onBack} />
+				<PageCredits />
 			</ExtraRootView>
 		);
 	}

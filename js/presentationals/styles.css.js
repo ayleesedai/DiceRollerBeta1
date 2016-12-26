@@ -171,7 +171,7 @@ export const toolBarButton = StyleSheet.create({
 		marginRight: 1,
 	},
 	text: {
-		color: 'white',
+		color: COLOR_TEXT,
 		fontSize: FONT_SIZE_LITTLE,
 		textAlign: 'center',
 	},
@@ -216,8 +216,27 @@ export const extraToolBar = StyleSheet.create({
 		flex: -1,
 	},
 	header: {
-		color: 'white',
+		color: COLOR_TEXT,
 		fontSize: FONT_SIZE_LITTLE,
 		textAlign: 'left',
+	},
+});
+
+// PageCredits
+export const pageCredits = StyleSheet.create({
+	view: {
+		flex: 1,
+		marginLeft: 40,
+		marginRight: 40,
+	},
+	text : {
+		color: COLOR_TEXT,
+		fontSize: FONT_SIZE_LITTLE,
+	},
+	textHighlighted : {
+		color: COLOR_TEXT,
+		fontSize: FONT_SIZE_LITTLE,
+		fontWeight: 'bold',
+		marginLeft: 20,
 	},
 });
