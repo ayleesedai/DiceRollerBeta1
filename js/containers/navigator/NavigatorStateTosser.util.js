@@ -52,3 +52,13 @@ export const push = (SCENE_KEY) => {
 export const selectTab = (TAB_KEY) => {
 	return {type: 'selectTab', tabKey: TAB_KEY};
 };
+
+// Custom action
+export const selectRouteUser = () => selectTab(TAB_USER_KEY);
+export const selectRouteMain = () => selectTab(TAB_MAIN_KEY);
+export const cancelScene = () => pop();
+export const selectSceneRegistration = () => push(SCENE_USER_REGISTER_KEY);
+export const selectSceneAchievements = () => push(SCENE_MAIN_ACHIEVEMENTS_KEY);
+export const selectSceneCredits = () => push(SCENE_MAIN_CREDITS_KEY);
+export const selectSceneCommercials = () => push(SCENE_MAIN_COMMERCIAL_KEY);
+export const selectSceneSettings = () => push(SCENE_MAIN_SETTINGS_KEY);

@@ -4,25 +4,40 @@ import NavigatorContainerHOC from './NavigatorContainerHOC';
 import * as NavUtil from './NavigatorStateTosser.util';
 import LoginContainer from './../user/LoginContainer';
 import RegistrationContainer from './../user/RegistrationContainer';
-import TossingFilterContainer from './../tosser/TossingFilterContainer';
+import TosserContainer from './../tosser/TosserContainer';
+import { 
+	selectRouteUser, 
+	selectRouteMain, 
+	cancelScene, 
+	selectSceneRegistration,
+	selectSceneAchievements, 
+	selectSceneCredits, 
+	selectSceneCommercials, 
+	selectSceneSettings 
+} from './NavigatorStateTosser.util';
 
 class NavigatorTosserSceneContainer extends Component {
 
 	constructor(props, context) {
 		super(props, context);
 		this._exit = this._exit.bind(this);
-		this._popRoute = this._popRoute.bind(this);
-		this._pushRoute = this._pushRoute.bind(this);
+		this._navigate = this._navigate.bind(this);
 	}
 
 	getContainer() {
 		switch(this.props.scene.route.key) {
 		case NavUtil.SCENE_USER_LOGIN_KEY:
-			return <LoginContainer navigate={this.props.navigate} />;
+			return <LoginContainer onLogged={this._navigate(selectRouteMain)} onSelectRegistration={this._navigate(selectSceneRegistration)} />;
 		case NavUtil.SCENE_USER_REGISTER_KEY:
-			return <RegistrationContainer navigate={this.props.navigate} />;
+			return <RegistrationContainer onLogged={this._navigate(selectRouteMain)} onCancel={this._navigate(cancelScene)} />;
 		case NavUtil.SCENE_MAIN_TOSSER_KEY:
-			return <TossingFilterContainer navigate={this.props.navigate} />;			
+			return (
+				<TosserContainer 
+					onLogout={this._navigate(selectRouteUser)} 
+					onSelectAchievements={this._navigate(selectSceneAchievements)} 
+					onSelectCredits={this._navigate(selectSceneCredits)} 
+					onSelectCommercials={this._navigate(selectSceneCommercials)} 
+					onSelectSettings={this._navigate(selectSceneSettings)} />);
 		}
 		return null;
 	}
@@ -31,14 +46,8 @@ class NavigatorTosserSceneContainer extends Component {
 		return this.getContainer();
 	}
 
-	_pushRoute() {
-		// Just push a route with a new unique key.
-		const route = { key: '[' + this.props.scenes.length + ']-' + Date.now() };
-		this.props.navigate({ type: 'push', route });
-	}
-
-	_popRoute() {
-		this.props.navigate({ type: 'pop' });
+	_navigate(action) {
+		return () => this.props.navigate(action());
 	}
 
 	_exit() {

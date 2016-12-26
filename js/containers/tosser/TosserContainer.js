@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as TosserActions from './actionsCreator.js';
 import { getDice } from './selectors';
 import PageTossing from '../../presentationals/tosser/PageTossing';
+import ToolBar from './../../presentationals/tosser/toolBar/ToolBar';
+import TosserRootView from './../../presentationals/tosser/TosserRootView';
 
 export class TossingFilterContainer extends Component {
 	constructor(props) {
@@ -36,19 +38,34 @@ export class TossingFilterContainer extends Component {
 	
 	render() {
 		return (
-			<PageTossing
-				dice={this.props.dice}
-				howmanydice={this.state.d20number}
-				onChangeText={this.onChangeText}
-				onButtonTossPress={this.onButtonTossPress}
-			/>
+			<TosserRootView>
+				<ToolBar 
+					onPressSettings={this.props.onSelectSettings}
+					onPressCredits={this.props.onSelectCredits}
+					onPressCommercials={this.props.onSelectCommercials}
+					onPressAchievements={this.props.onSelectAchievements}
+					onPressLogout={this.props.onLogout}
+				/>
+				<PageTossing
+					dice={this.props.dice}
+					howmanydice={this.state.d20number}
+					onChangeText={this.onChangeText}
+					onButtonTossPress={this.onButtonTossPress}
+				/>
+			</TosserRootView>
 		);
 	}
 }
 
 TossingFilterContainer.propTypes = {
-	dice: React.PropTypes.array,
-	generateDice: React.PropTypes.func,
+	dice: PropTypes.array,
+	generateDice: PropTypes.func,
+
+	onLogout: PropTypes.func.isRequired,
+	onSelectAchievements: PropTypes.func.isRequired,
+	onSelectCredits: PropTypes.func.isRequired,
+	onSelectCommercials: PropTypes.func.isRequired,
+	onSelectSettings: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {

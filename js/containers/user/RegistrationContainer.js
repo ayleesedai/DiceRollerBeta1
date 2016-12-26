@@ -7,8 +7,7 @@ import { getEmail, getPassword, getPasswordConfirmation, isEmailValid, isPasswor
 import PageUserRegistration from '../../presentationals/user/PageUserRegistration';
 import firebaseWrapper from './../../libs/firebase/FirebaseWrapper';
 import * as UserLoggedStatus from './../../libs/usermanagement/UserLoggedStatus';
-import UserRootView from './../../presentationals/roots/UserRootView';
-import { pop, selectTab, TAB_MAIN_KEY } from './../navigator/NavigatorStateTosser.util';
+import UserRootView from './../../presentationals/user/UserRootView';
 
 export class LoginContainer extends Component {
 	constructor(props, context) {
@@ -30,7 +29,7 @@ export class LoginContainer extends Component {
 		switch(status) {
 		case UserLoggedStatus.OK_LOGGED: {
 			this.props.login(true);
-			this.props.navigate(selectTab(TAB_MAIN_KEY));
+			this.props.onLogged();
 			break;
 		}
 		}
@@ -38,11 +37,11 @@ export class LoginContainer extends Component {
 
 	onRegisterPress() {
 		//FIXME firebaseWrapper.createAccount(this.state.email, this.state.password);
-		this.props.navigate(pop());
+		this.props.onCancel();
 	}
 
 	onCancelRegisterPress() {
-		this.props.navigate(pop());
+		this.props.onCancel();
 	}
 
 	render() {
@@ -76,7 +75,8 @@ LoginContainer.propTypes = {
 	updatePassword: PropTypes.func.isRequired,
 	updatePasswordConfirmation: PropTypes.func.isRequired,
 
-	navigate: PropTypes.func.isRequired,
+	onCancel: PropTypes.func.isRequired,
+	onLogged: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {

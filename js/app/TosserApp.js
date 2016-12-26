@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import NavigatorApp from './../containers/navigator/NavigatorApp';
 import { getLogged } from '../containers/user/selectors';
 import firebaseWrapper from './../libs/firebase/FirebaseWrapper';
-import RootView from './../presentationals/roots/RootView';
+import RootView from './../presentationals/_base/RootView';
 
 export class TosserApp extends React.Component {
 

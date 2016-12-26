@@ -2,8 +2,9 @@ import { StyleSheet } from 'react-native';
 
 // Internal constants
 //FONTS ***************************************************************************
+const FONT_SIZE_LITTLE = 15;
 const FONT_SIZE_NORMAL = 20;
-const FONT_SIZE_DIE = 25;
+const FONT_SIZE_BIG = 25;
 
 // COLORS ***********************************************************************
 const COLOR_BACKGROUND = '#2196F3';
@@ -103,6 +104,24 @@ export const pageUserLogin = StyleSheet.create({
 	},
 });
 
+// NAVIGATOR
+export const navigatorMain = StyleSheet.create({
+	navigatorParent: {
+		backgroundColor: 'transparent',
+	},
+	navigatorCardStack: {
+		flex: 1,
+	}
+});
+
+// TOSSER *************************************************************************
+// TosserRootView
+export const tosserRootView = StyleSheet.create({
+	view: {
+		flex: 1,
+	},
+});
+
 // PageTossing
 export const pageTossing = StyleSheet.create({
 	container: {
@@ -119,7 +138,7 @@ export const dieRender = StyleSheet.create({
 	},
 	text: {
 		color: COLOR_TEXT_DIE,
-		fontSize: FONT_SIZE_DIE,
+		fontSize: FONT_SIZE_BIG,
 		height: 50,
 		marginTop: 10,
 		textAlign: 'center',
@@ -138,12 +157,37 @@ export const diceRender = StyleSheet.create({
 	},
 });
 
-// NAVIGATOR
-export const navigatorMain = StyleSheet.create({
-	navigatorParent: {
-		backgroundColor: 'transparent',
+// TOOLBAR
+// ToolBarButton
+export const toolBarButton = StyleSheet.create({
+	view: {
+		backgroundColor: COLOR_BACKGROUND_BUTTON,
+		borderRadius: 2,
+		paddingLeft: 4,
+		paddingRight: 4,
+		paddingTop: 2,
+		paddingBottom: 2,
+		marginLeft: 1,
+		marginRight: 1,
 	},
-	navigatorCardStack: {
-		flex: 1,
-	}
+	text: {
+		color: 'white',
+		fontSize: FONT_SIZE_LITTLE,
+		textAlign: 'center',
+	},
+});
+
+export const toolBarButtonExtra = {
+	underlayColor: COLOR_BACKGROUND_DIE,
+};
+
+// ToolBar
+export const toolBar = StyleSheet.create({
+	view: {
+		flex: -1,
+		flexDirection: 'row',
+		flexWrap: 'nowrap',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
 });

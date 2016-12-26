@@ -5,7 +5,6 @@ import NavigatorContainerHOC from './NavigatorContainerHOC';
 import { TAB_USER_KEY, TAB_MAIN_KEY } from './NavigatorStateTosser.util';
 import NavigatorTosserSceneContainer from './NavigatorTosserSceneContainer';
 import NavigatorMain from './../../presentationals/navigator/NavigatorMain';
-import RootView from './../../presentationals/roots/RootView';
 
 class NavigatorTosser extends Component {
 
@@ -21,14 +20,12 @@ class NavigatorTosser extends Component {
 		const tabKey = tabs.routes[tabs.index].key;
 		const scenes = appNavigationState[tabKey];
 		return (
-			<RootView>
-				<NavigatorMain
-					stackkey={'stack_' + tabKey}
-					onNavigateBack={this._back}
-					navigationState={scenes}
-					renderScene={this._renderScene}
-					/>
-			</RootView>
+			<NavigatorMain
+				stackkey={'stack_' + tabKey}
+				onNavigateBack={this._back}
+				navigationState={scenes}
+				renderScene={this._renderScene}
+				/>
 		);
 	}
 
