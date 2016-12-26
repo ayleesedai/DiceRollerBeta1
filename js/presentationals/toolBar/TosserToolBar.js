@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { View } from 'react-native';
 
 import ToolBarButton from './ToolBarButton';
-import { toolBar as styles } from './../../styles.css.js';
+import { tosserToolBar as styles } from './../styles.css.js';
 
-export default class ToolBar extends Component {
+export default class TosserToolBar extends Component {
 	render() {
 		return (
 			<View style={styles.view}>
@@ -18,7 +18,7 @@ export default class ToolBar extends Component {
 	}
 }
 
-ToolBar.propTypes = {
+TosserToolBar.propTypes = {
 	onPressSettings: PropTypes.func.isRequired,
 	onPressCredits: PropTypes.func.isRequired,
 	onPressCommercials: PropTypes.func.isRequired,

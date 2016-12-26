@@ -181,13 +181,43 @@ export const toolBarButtonExtra = {
 	underlayColor: COLOR_BACKGROUND_DIE,
 };
 
-// ToolBar
-export const toolBar = StyleSheet.create({
+// TosserToolBar
+export const tosserToolBar = StyleSheet.create({
 	view: {
 		flex: -1,
 		flexDirection: 'row',
 		flexWrap: 'nowrap',
 		alignItems: 'center',
 		justifyContent: 'center',
+	},
+});
+
+// EXTRA ********************************************************************************
+// ExtraRootView
+export const extraRootView = StyleSheet.create({
+	view: {
+		flex: 1,
+	},
+});
+
+// ExtraToolBar
+export const extraToolBar = StyleSheet.create({
+	view: {
+		flex: -1,
+		flexDirection: 'row',
+		flexWrap: 'nowrap',
+		alignItems: 'center',
+		justifyContent: 'flex-start',
+	},
+	headerView: {
+		flex: 1,
+	},
+	backView: {
+		flex: -1,
+	},
+	header: {
+		color: 'white',
+		fontSize: FONT_SIZE_LITTLE,
+		textAlign: 'left',
 	},
 });

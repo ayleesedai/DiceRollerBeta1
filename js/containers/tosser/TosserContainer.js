@@ -5,10 +5,10 @@ import { bindActionCreators } from 'redux';
 import * as TosserActions from './actionsCreator.js';
 import { getDice } from './selectors';
 import PageTossing from '../../presentationals/tosser/PageTossing';
-import ToolBar from './../../presentationals/tosser/toolBar/ToolBar';
+import TosserToolBar from './../../presentationals/toolBar/TosserToolBar';
 import TosserRootView from './../../presentationals/tosser/TosserRootView';
 
-export class TossingFilterContainer extends Component {
+export class TosserContainer extends Component {
 	constructor(props) {
 		super(props);
 		
@@ -39,7 +39,7 @@ export class TossingFilterContainer extends Component {
 	render() {
 		return (
 			<TosserRootView>
-				<ToolBar 
+				<TosserToolBar 
 					onPressSettings={this.props.onSelectSettings}
 					onPressCredits={this.props.onSelectCredits}
 					onPressCommercials={this.props.onSelectCommercials}
@@ -57,7 +57,7 @@ export class TossingFilterContainer extends Component {
 	}
 }
 
-TossingFilterContainer.propTypes = {
+TosserContainer.propTypes = {
 	dice: PropTypes.array,
 	generateDice: PropTypes.func,
 
@@ -79,4 +79,4 @@ const mapActionsToProps = dispatch => {
 	return bindActionCreators(TosserActions, dispatch);
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(TossingFilterContainer);
+export default connect(mapStateToProps, mapActionsToProps)(TosserContainer);

@@ -1,10 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { NavigationExperimental } from 'react-native';
+
 import NavigatorContainerHOC from './NavigatorContainerHOC';
 import * as NavUtil from './NavigatorStateTosser.util';
 import LoginContainer from './../user/LoginContainer';
 import RegistrationContainer from './../user/RegistrationContainer';
 import TosserContainer from './../tosser/TosserContainer';
+import SettingsContainer from './../settings/SettingsContainer';
+import AchievementsContainer from './../achievements/AchievementsContainer';
+import CreditsContainer from './../credits/CreditsContainer';
+import CommercialsContainer from './../commercials/CommercialsContainer';
 import { 
 	selectRouteUser, 
 	selectRouteMain, 
@@ -38,6 +43,14 @@ class NavigatorTosserSceneContainer extends Component {
 					onSelectCredits={this._navigate(selectSceneCredits)} 
 					onSelectCommercials={this._navigate(selectSceneCommercials)} 
 					onSelectSettings={this._navigate(selectSceneSettings)} />);
+		case NavUtil.SCENE_MAIN_SETTINGS_KEY:
+			return <SettingsContainer onBack={this._navigate(cancelScene)} />;
+		case NavUtil.SCENE_MAIN_ACHIEVEMENTS_KEY:
+			return <AchievementsContainer onBack={this._navigate(cancelScene)} />;
+		case NavUtil.SCENE_MAIN_CREDITS_KEY:
+			return <CreditsContainer onBack={this._navigate(cancelScene)} />;
+		case NavUtil.SCENE_MAIN_COMMERCIAL_KEY:
+			return <CommercialsContainer onBack={this._navigate(cancelScene)} />;
 		}
 		return null;
 	}

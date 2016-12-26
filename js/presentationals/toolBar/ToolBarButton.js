@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Text, TouchableHighlight } from 'react-native';
 
-import { toolBarButton as styles, toolBarButtonExtra as stylesExtra } from './../../styles.css.js';
+import { toolBarButton as styles, toolBarButtonExtra as stylesExtra } from './../styles.css.js';
 
 export default class ToolBarButton extends Component {
 	render() {
