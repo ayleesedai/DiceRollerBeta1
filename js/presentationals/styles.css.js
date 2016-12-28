@@ -240,3 +240,38 @@ export const pageCredits = StyleSheet.create({
 		marginLeft: 20,
 	},
 });
+
+// PageSettings
+export const pageSettings = StyleSheet.create({
+	view: {
+		flex: 1,
+		padding: 20,
+	},
+});
+
+// SettingsSwitch
+export const settingsSwitch = StyleSheet.create({
+	view: {
+		flex: -1,
+		flexDirection: 'row',
+		marginBottom: 20,
+	},
+	text: {
+		fontSize: FONT_SIZE_NORMAL,
+	},
+});
+
+// SettingsSliderPercentual
+export const settingsSliderPercentual = StyleSheet.create({
+	view: {
+		flex: -1,
+		flexDirection: 'row',
+		marginBottom: 20,
+	},
+	slider: {
+		flexGrow: 1,
+	},
+	text: {
+		fontSize: FONT_SIZE_NORMAL,
+	},
+});

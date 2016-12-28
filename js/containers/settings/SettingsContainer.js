@@ -6,6 +6,7 @@ import ExtraRootView from './../../presentationals/_base/ExtraRootView';
 import ExtraToolBar  from './../../presentationals/toolBar/ExtraToolBar';
 import * as Actions from './actionCreators';
 import { getMusic, getSound, getVibration, getVolume} from './selectors.js';
+import PageSettings from './../../presentationals/settings/PageSettings';
 
 export class SettingsContainer extends Component {
 	constructor(props) {
@@ -16,6 +17,16 @@ export class SettingsContainer extends Component {
 		return (
 			<ExtraRootView>
 				<ExtraToolBar header="Change app settings" onPressBack={this.props.onBack} />
+				<PageSettings 
+					music={this.props.music}
+					sound={this.props.sound}
+					vibration={this.props.vibration}
+					volume={this.props.volume}
+					onMusicChange={this.props.setSettingsMusic}
+					onSoundChange={this.props.setSettingsSound}
+					onVibrationChange={this.props.setSettingsVibration}
+					onVolumeChange={this.props.setSettingsVolume}
+				/>
 			</ExtraRootView>
 		);
 	}
