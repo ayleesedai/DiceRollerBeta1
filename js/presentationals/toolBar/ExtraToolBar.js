@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Text, View } from 'react-native';
 
-import ToolBarButton from './ToolBarButton';
+import ToolBarButtonBack from './buttons/ToolBarButtonBack';
 import { extraToolBar as styles } from './../styles.css.js';
 
 export default class ExtraToolBar extends Component {
@@ -12,7 +12,7 @@ export default class ExtraToolBar extends Component {
 					<Text style={styles.header}>{this.props.header}</Text>
 				</View>
 				<View style={styles.backView}>
-					<ToolBarButton text="Back" onPress={this.props.onPressBack} />
+					<ToolBarButtonBack text="Back" onPress={this.props.onPressBack} />
 				</View>
 			</View>
 		);

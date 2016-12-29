@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 // Internal constants
 //FONTS ***************************************************************************
+const FONT_SIZE_TINY = 12;
 const FONT_SIZE_LITTLE = 15;
 const FONT_SIZE_NORMAL = 20;
 const FONT_SIZE_BIG = 25;
@@ -160,7 +161,8 @@ export const diceRender = StyleSheet.create({
 // TOOLBAR
 // ToolBarButton
 export const toolBarButton = StyleSheet.create({
-	view: {
+	container: {
+		flex: -1,
 		backgroundColor: COLOR_BACKGROUND_BUTTON,
 		borderRadius: 2,
 		paddingLeft: 4,
@@ -170,9 +172,18 @@ export const toolBarButton = StyleSheet.create({
 		marginLeft: 1,
 		marginRight: 1,
 	},
+	view: {
+		flex: -1,
+		width: 48,
+		alignItems: 'center',
+	},
+	image: {
+		height: 32,
+		width: 32,
+	},
 	text: {
 		color: COLOR_TEXT,
-		fontSize: FONT_SIZE_LITTLE,
+		fontSize: FONT_SIZE_TINY,
 		textAlign: 'center',
 	},
 });
@@ -217,7 +228,7 @@ export const extraToolBar = StyleSheet.create({
 	},
 	header: {
 		color: COLOR_TEXT,
-		fontSize: FONT_SIZE_LITTLE,
+		fontSize: FONT_SIZE_BIG,
 		textAlign: 'left',
 	},
 });

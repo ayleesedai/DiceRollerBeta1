@@ -99,8 +99,8 @@ const mapStateToProps = (state) => {
 	return {
 		email, 
 		password, 
-		emailValid, 
-		passwordValid
+		emailValid: true, 
+		passwordValid: true,
 	};
 };
 

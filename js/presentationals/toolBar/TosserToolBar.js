@@ -1,18 +1,22 @@
 import React, { Component, PropTypes } from 'react';
 import { View } from 'react-native';
 
-import ToolBarButton from './ToolBarButton';
+import ToolBarButtonLogout from './buttons/ToolBarButtonLogout';
+import ToolBarButtonAchievements from './buttons/ToolBarButtonAchievements';
+import ToolBarButtonCommercials from './buttons/ToolBarButtonCommercials';
+import ToolBarButtonCredits from './buttons/ToolBarButtonCredits';
+import ToolBarButtonSettings from './buttons/ToolBarButtonSettings';
 import { tosserToolBar as styles } from './../styles.css.js';
 
 export default class TosserToolBar extends Component {
 	render() {
 		return (
 			<View style={styles.view}>
-				<ToolBarButton text="Settings" onPress={this.props.onPressSettings} />
-				<ToolBarButton text="Credits" onPress={this.props.onPressCredits} />
-				<ToolBarButton text="Commercials" onPress={this.props.onPressCommercials} />
-				<ToolBarButton text="Achievements" onPress={this.props.onPressAchievements} />
-				<ToolBarButton text="Logout" onPress={this.props.onPressLogout} />
+				<ToolBarButtonSettings text="settings" onPress={this.props.onPressSettings} />
+				<ToolBarButtonCredits text="credits" onPress={this.props.onPressCredits} />
+				<ToolBarButtonCommercials text="earn" onPress={this.props.onPressCommercials} />
+				<ToolBarButtonAchievements text="achies" onPress={this.props.onPressAchievements} />
+				<ToolBarButtonLogout text="logout" onPress={this.props.onPressLogout} />
 			</View>
 		);
 	}
