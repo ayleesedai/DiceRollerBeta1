@@ -125,8 +125,38 @@ export const tosserRootView = StyleSheet.create({
 
 // PageTossing
 export const pageTossing = StyleSheet.create({
-	container: {
+	containerview: {
 		flex: 1,
+		flexDirection: 'row',
+	},
+	animationview: {
+		flex: 1,
+	},
+	diceview: {
+		flex: 3,
+		flexDirection: 'column',
+	},
+	dicechoseview: {
+		flex: -1,
+		flexDirection: 'column',
+	},
+	howmanydiceview: {
+		flex: -1,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'flex-start'
+	},
+	textDice: {
+		flex: -1,
+		color: COLOR_TEXT,
+		fontSize: FONT_SIZE_NORMAL,
+		fontWeight: 'bold',
+		textAlign: 'left',
+	},
+	textInputDice: {
+		flex: 1,
+		color: COLOR_TEXT,
+		fontSize: FONT_SIZE_NORMAL,
 	},
 });
 
@@ -154,7 +184,6 @@ export const diceRender = StyleSheet.create({
 		alignItems: 'flex-start',
 		flexDirection: 'row',
 		flexWrap: 'wrap',
-		marginTop: 10
 	},
 });
 
