@@ -17,9 +17,9 @@ export default class PageUserRegistration extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<TextInputPlain placeholder="Inserire e-mail" value={this.props.userEmail} onChangeText={this.props.onEmailChange} keyboardType="email-address" />
-				<TextInputPlain placeholder="Inserire password" value={this.props.userPassword} onChangeText={this.props.onPasswordChange} secureTextEntry={true} />
-				<TextInputPlain placeholder="Confermare password" value={this.props.userPasswordConfirm} onChangeText={this.props.onPasswordConfirmChange} secureTextEntry={true} />
+				<TextInputPlain placeholder="E-mail" value={this.props.userEmail} onChangeText={this.props.onEmailChange} keyboardType="email-address" />
+				<TextInputPlain placeholder="Password" value={this.props.userPassword} onChangeText={this.props.onPasswordChange} secureTextEntry={true} />
+				<TextInputPlain placeholder="Confirm password" value={this.props.userPasswordConfirm} onChangeText={this.props.onPasswordConfirmChange} secureTextEntry={true} />
 				<ButtonPlain onPress={this.props.onRegisterPress} text="Register" />
 				<ButtonPlain onPress={this.props.onCancelRegisterPress} text="Cancel" />
 			</View>

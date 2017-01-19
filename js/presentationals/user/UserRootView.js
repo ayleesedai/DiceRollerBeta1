@@ -8,7 +8,7 @@ class UserRootView extends Component {
 	render() {
 		return (
 			<View style={styles.view}>
-				<TextPlain text='Semplice intestazione per la login' />
+				
 				{this.props.children}
 			</View>
 		);

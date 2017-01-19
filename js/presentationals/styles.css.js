@@ -2,10 +2,10 @@ import { StyleSheet } from 'react-native';
 
 // Internal constants
 //FONTS ***************************************************************************
-const FONT_SIZE_TINY = 12;
-const FONT_SIZE_LITTLE = 15;
-const FONT_SIZE_NORMAL = 20;
-const FONT_SIZE_BIG = 25;
+const FONT_SIZE_TINY = 8;
+const FONT_SIZE_LITTLE = 10;
+const FONT_SIZE_NORMAL = 14;
+const FONT_SIZE_BIG = 20;
 
 // COLORS ***********************************************************************
 const COLOR_BACKGROUND = '#2196F3';
@@ -20,8 +20,8 @@ const COLOR_TEXT_DIE = '#E3F2FD';
 export const buttonPlain = StyleSheet.create({
 	view: {
 		backgroundColor: COLOR_BACKGROUND_BUTTON,
-		borderRadius: 10,
-		marginBottom: 4,
+		borderRadius: 5,
+		marginBottom: 5,
 		padding: 5,
 	},
 	text: {
@@ -40,7 +40,7 @@ export const buttonPlainExtra = {
 export const buttonPlainDisabled = StyleSheet.create({
 	view: {
 		backgroundColor: COLOR_BACKGROUND_BUTTON_DISABLED,
-		borderRadius: 10,
+		borderRadius: 5,
 		marginBottom: 4,
 		padding: 5,
 	},
@@ -91,17 +91,24 @@ export const userRootView = StyleSheet.create({
 });
 
 // COMPONENTS **************************************************************************
-// PageUserRegistration
-export const pageUserRegistration = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
-});
 
 // PageUserLogin
 export const pageUserLogin = StyleSheet.create({
 	container: {
 		flex: 1,
+		justifyContent: 'center',
+		margin: 0,
+		padding: 20,
+		backgroundColor: '#999',
+	},
+});
+
+// PageUserRegistration
+export const pageUserRegistration = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		backgroundColor: '#999',
 	},
 });
 
@@ -133,7 +140,7 @@ export const pageTossing = StyleSheet.create({
 		flex: 1,
 	},
 	diceview: {
-		flex: 3,
+		flex: 2,
 		flexDirection: 'column',
 	},
 	dicechoseview: {
@@ -157,6 +164,7 @@ export const pageTossing = StyleSheet.create({
 		flex: 1,
 		color: COLOR_TEXT,
 		fontSize: FONT_SIZE_NORMAL,
+		fontWeight: 'bold',
 	},
 });
 
@@ -164,8 +172,9 @@ export const pageTossing = StyleSheet.create({
 export const dieRender = StyleSheet.create({
 	view: {
 		backgroundColor: COLOR_BACKGROUND_DIE,
-		borderRadius: 10, 
-		margin: 5, 
+		borderRadius: 5,
+		margin: 5,
+		flex: 5,
 	},
 	text: {
 		color: COLOR_TEXT_DIE,
