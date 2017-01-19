@@ -36,7 +36,7 @@ export const buttonPlainExtra = {
 	underlayColor: COLOR_BACKGROUND_DIE,
 };
 
-// ButtonPlain
+// buttonPlainDisabled
 export const buttonPlainDisabled = StyleSheet.create({
 	view: {
 		backgroundColor: COLOR_BACKGROUND_BUTTON_DISABLED,
@@ -77,7 +77,7 @@ export const textPlain = StyleSheet.create({
 export const rootView = StyleSheet.create({
 	view: {
 		flex: 1,
-		backgroundColor: COLOR_BACKGROUND,
+		backgroundColor: '#000',
 	},
 });
 
@@ -85,8 +85,8 @@ export const rootView = StyleSheet.create({
 export const userRootView = StyleSheet.create({
 	view: {
 		flex: 1,
-		marginLeft: 50,
-		marginRight: 50,
+		flexDirection: 'row',
+		
 	},
 });
 
@@ -97,7 +97,7 @@ export const pageUserLogin = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
-		backgroundColor: '#999',
+		backgroundColor: COLOR_BACKGROUND,
 	},
 });
 
@@ -106,7 +106,7 @@ export const pageUserRegistration = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
-		backgroundColor: '#999',
+		backgroundColor: COLOR_BACKGROUND,
 	},
 });
 
@@ -200,12 +200,9 @@ export const toolBarButton = StyleSheet.create({
 		flex: -1,
 		backgroundColor: COLOR_BACKGROUND_BUTTON,
 		borderRadius: 2,
-		paddingLeft: 4,
-		paddingRight: 4,
-		paddingTop: 2,
-		paddingBottom: 2,
-		marginLeft: 1,
-		marginRight: 1,
+		paddingTop: 5,
+		paddingBottom: 5,
+		marginRight: 3,
 	},
 	view: {
 		flex: -1,
@@ -213,12 +210,13 @@ export const toolBarButton = StyleSheet.create({
 		alignItems: 'center',
 	},
 	image: {
-		height: 32,
-		width: 32,
+		height: 30,
+		width: 30,
 	},
 	text: {
 		color: COLOR_TEXT,
 		fontSize: FONT_SIZE_TINY,
+		fontWeight: 'bold',
 		textAlign: 'center',
 	},
 });

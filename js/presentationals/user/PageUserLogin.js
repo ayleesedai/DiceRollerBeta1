@@ -22,9 +22,9 @@ export default class PageUserLogin extends Component {
 			<View style={styles.container}>
 				<TextInputPlain placeholder="E-mail" value={this.props.userEmail} onChangeText={this.props.onEmailChange} keyboardType="email-address" />
 				<TextInputPlain placeholder="Password" value={this.props.userPassword} onChangeText={this.props.onPasswordChange} secureTextEntry={true} />
-				<ButtonPlain onPress={this.props.onLoginPress} text="Login" disabled={this.props.loginDisabled} />
-				<ButtonPlain onPress={this.props.onCreateAccountPress} text="Create account" />
-				<ButtonPlain onPress={this.props.onResetPasswordPress} text="Reset password" disabled={this.props.resetPasswordDisabled} />
+				<ButtonPlain onPress={this.props.onLoginPress} text="ROLL IN!" disabled={this.props.loginDisabled} />
+				<ButtonPlain onPress={this.props.onCreateAccountPress} text="Sign up" />
+				<ButtonPlain onPress={this.props.onResetPasswordPress} text="Forgot password?" disabled={this.props.resetPasswordDisabled} />
 			</View>
 		);
 	}

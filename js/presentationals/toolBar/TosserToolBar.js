@@ -12,11 +12,11 @@ export default class TosserToolBar extends Component {
 	render() {
 		return (
 			<View style={styles.view}>
-				<ToolBarButtonSettings text="settings" onPress={this.props.onPressSettings} />
-				<ToolBarButtonCredits text="credits" onPress={this.props.onPressCredits} />
-				<ToolBarButtonCommercials text="earn" onPress={this.props.onPressCommercials} />
-				<ToolBarButtonAchievements text="achies" onPress={this.props.onPressAchievements} />
-				<ToolBarButtonLogout text="logout" onPress={this.props.onPressLogout} />
+				<ToolBarButtonSettings text="SETTINGS" onPress={this.props.onPressSettings} />
+				<ToolBarButtonCredits text="CREDITS" onPress={this.props.onPressCredits} />
+				<ToolBarButtonCommercials text="EARN" onPress={this.props.onPressCommercials} />
+				<ToolBarButtonAchievements text="ACHIEVS" onPress={this.props.onPressAchievements} />
+				<ToolBarButtonLogout text="ROLL OUT" onPress={this.props.onPressLogout} />
 			</View>
 		);
 	}
