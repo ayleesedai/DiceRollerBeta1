@@ -97,8 +97,6 @@ export const pageUserLogin = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
-		margin: 0,
-		padding: 20,
 		backgroundColor: '#999',
 	},
 });
@@ -172,9 +170,8 @@ export const pageTossing = StyleSheet.create({
 export const dieRender = StyleSheet.create({
 	view: {
 		backgroundColor: COLOR_BACKGROUND_DIE,
-		borderRadius: 5,
-		margin: 5,
-		flex: 5,
+		borderRadius: 5, 
+		margin: 5, 
 	},
 	text: {
 		color: COLOR_TEXT_DIE,
