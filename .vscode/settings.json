@@ -2,5 +2,6 @@
 {
     "typescript.tsdk": "./node_modules/typescript/lib",
     "editor.insertSpaces": false,
-    "editor.detectIndentation": false    
+	"editor.detectIndentation": false,
+	"vsicons.presets.angular": false
 }

@@ -12,20 +12,21 @@ const COLOR_BACKGROUND = '#2196F3';
 const COLOR_BACKGROUND_BUTTON = '#01579B';
 const COLOR_BACKGROUND_BUTTON_DISABLED = '#888888';
 const COLOR_BACKGROUND_DIE = '#0277BD';
-const COLOR_TEXT = 'white';
+const COLOR_TEXT = '#fff';
 const COLOR_TEXT_DIE = '#E3F2FD';
 
 // BUTTONS ************************************************************************
 // ButtonPlain
 export const buttonPlain = StyleSheet.create({
 	view: {
+		width: 250,
 		backgroundColor: COLOR_BACKGROUND_BUTTON,
 		borderRadius: 5,
 		marginBottom: 5,
 		padding: 5,
 	},
 	text: {
-		color: 'white',
+		color: COLOR_TEXT,
 		fontSize: FONT_SIZE_NORMAL,
 		fontWeight: '500',
 		textAlign: 'center',
@@ -41,11 +42,11 @@ export const buttonPlainDisabled = StyleSheet.create({
 	view: {
 		backgroundColor: COLOR_BACKGROUND_BUTTON_DISABLED,
 		borderRadius: 5,
-		marginBottom: 4,
+		marginBottom: 5,
 		padding: 5,
 	},
 	text: {
-		color: 'white',
+		color: COLOR_TEXT,
 		fontSize: FONT_SIZE_NORMAL,
 		fontWeight: '500',
 		textAlign: 'center',
@@ -56,8 +57,13 @@ export const buttonPlainDisabled = StyleSheet.create({
 // TextInputPlain
 export const textInputPlain = StyleSheet.create({
 	textInput: {
+		width: 250,
+		height: 40,
+		backgroundColor: '#fff',
 		color: COLOR_TEXT,
 		fontSize: FONT_SIZE_NORMAL,
+		borderRadius: 5,
+		marginBottom: 10,
 	},
 });
 
@@ -67,7 +73,6 @@ export const textPlain = StyleSheet.create({
 		color: COLOR_TEXT,
 		fontSize: FONT_SIZE_NORMAL,
 		fontWeight: 'bold',
-		margin: 10,
 		textAlign: 'left',
 	},
 });
@@ -77,7 +82,7 @@ export const textPlain = StyleSheet.create({
 export const rootView = StyleSheet.create({
 	view: {
 		flex: 1,
-		backgroundColor: '#000',
+		backgroundColor: COLOR_BACKGROUND,
 	},
 });
 
@@ -86,7 +91,6 @@ export const userRootView = StyleSheet.create({
 	view: {
 		flex: 1,
 		flexDirection: 'row',
-		
 	},
 });
 
@@ -97,6 +101,7 @@ export const pageUserLogin = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
+		alignItems: 'center',
 		backgroundColor: COLOR_BACKGROUND,
 	},
 });
@@ -106,6 +111,7 @@ export const pageUserRegistration = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
+		alignItems: 'center',
 		backgroundColor: COLOR_BACKGROUND,
 	},
 });
@@ -270,18 +276,18 @@ export const extraToolBar = StyleSheet.create({
 export const pageCredits = StyleSheet.create({
 	view: {
 		flex: 1,
-		marginLeft: 40,
-		marginRight: 40,
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	text : {
 		color: COLOR_TEXT,
-		fontSize: FONT_SIZE_LITTLE,
+		fontSize: FONT_SIZE_NORMAL,
+		marginBottom: 20,
 	},
 	textHighlighted : {
 		color: COLOR_TEXT,
-		fontSize: FONT_SIZE_LITTLE,
+		fontSize: 16,
 		fontWeight: 'bold',
-		marginLeft: 20,
 	},
 });
 
