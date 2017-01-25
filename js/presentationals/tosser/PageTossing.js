@@ -21,7 +21,7 @@ export default class PageTossing extends Component {
 						</View>
 						<ButtonPlain
 							onPress={this.props.onButtonTossPress}
-							text={'GO'}
+							text={'ROLL!'}
 							accessibilityLabel="GO" />
 					</View>
 					<DiceRender dice={this.props.dice} />

@@ -167,7 +167,7 @@ export const pageTossing = StyleSheet.create({
 	textInputDice: {
 		flex: 1,
 		color: COLOR_TEXT,
-		fontSize: FONT_SIZE_NORMAL,
+		fontSize: 16,
 		fontWeight: 'bold',
 	},
 });
@@ -177,15 +177,13 @@ export const dieRender = StyleSheet.create({
 	view: {
 		backgroundColor: COLOR_BACKGROUND_DIE,
 		borderRadius: 5, 
-		margin: 5, 
+		margin: 5,
 	},
 	text: {
 		color: COLOR_TEXT_DIE,
-		fontSize: FONT_SIZE_BIG,
-		height: 50,
-		marginTop: 10,
+		fontSize: 16,
+		padding: 10,
 		textAlign: 'center',
-		width: 60,
 	}
 });
 
@@ -257,7 +255,7 @@ export const extraToolBar = StyleSheet.create({
 		flexDirection: 'row',
 		flexWrap: 'nowrap',
 		alignItems: 'center',
-		justifyContent: 'flex-start',
+		justifyContent: 'center',
 	},
 	headerView: {
 		flex: 1,
@@ -267,8 +265,44 @@ export const extraToolBar = StyleSheet.create({
 	},
 	header: {
 		color: COLOR_TEXT,
-		fontSize: FONT_SIZE_BIG,
-		textAlign: 'left',
+		fontSize: 18,
+	},
+});
+
+// PageSettings
+export const pageSettings = StyleSheet.create({
+	view: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+});
+
+// SettingsSwitch
+export const settingsSwitch = StyleSheet.create({
+	view: {
+		flex: -1,
+		flexDirection: 'row',
+	},
+	text: {
+		fontSize: FONT_SIZE_NORMAL,
+		color: COLOR_TEXT,
+	},
+});
+
+// SettingsSliderPercentual
+export const settingsSliderPercentual = StyleSheet.create({
+	view: {
+		flex: -1,
+		flexDirection: 'row',
+		marginBottom: 20,
+	},
+	slider: {
+		flexGrow: 1,
+	},
+	text: {
+		fontSize: FONT_SIZE_NORMAL,
+		color: COLOR_TEXT,
 	},
 });
 
@@ -291,37 +325,9 @@ export const pageCredits = StyleSheet.create({
 	},
 });
 
-// PageSettings
-export const pageSettings = StyleSheet.create({
-	view: {
-		flex: 1,
-		padding: 20,
-	},
-});
+// PageEarn
 
-// SettingsSwitch
-export const settingsSwitch = StyleSheet.create({
-	view: {
-		flex: -1,
-		flexDirection: 'row',
-		marginBottom: 20,
-	},
-	text: {
-		fontSize: FONT_SIZE_NORMAL,
-	},
-});
+// PageAchievements
 
-// SettingsSliderPercentual
-export const settingsSliderPercentual = StyleSheet.create({
-	view: {
-		flex: -1,
-		flexDirection: 'row',
-		marginBottom: 20,
-	},
-	slider: {
-		flexGrow: 1,
-	},
-	text: {
-		fontSize: FONT_SIZE_NORMAL,
-	},
-});
+
+

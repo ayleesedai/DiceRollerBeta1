@@ -13,6 +13,7 @@ export default class PageSettings extends Component {
 				<SettingsSwitch text="Sound" value={this.props.sound} onChange={this.props.onSoundChange} />
 				<SettingsSwitch text="Vibration" value={this.props.vibration} onChange={this.props.onVibrationChange} />
 				<SettingsSliderPercentual text="Volume" value={this.props.volume} onChange={this.props.onVolumeChange} />
+
 			</View>
 		);
 	}
